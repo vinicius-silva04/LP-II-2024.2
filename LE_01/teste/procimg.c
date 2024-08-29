@@ -42,6 +42,19 @@ void drwRect(unsigned char img[640][480], int x, int y, int larg, int alt, unsig
         for(int j = x; j < x+larg; j++) img[i][j] = pixel;
     }
 }
+//Q7
+void drwCirc(unsigned char img[tamanho][tamanho], int x, int y, int rad, unsigned char pixel){
+    int m, i, j, n;
+    for(i = 0; i < tamanho; i++){
+        n = (i - x)*(i - x);
+        for(j = 0; j < tamanho; j++){
+            m = sqrt(n + (j - y)*(j - y));
+            if(m <= rad){
+                img[j][i] = pixel;
+            }
+        }
+    }
+}
 //Q12
 void imgHistogram(unsigned char img[640][480], int hist[256]){
     int i,j;
