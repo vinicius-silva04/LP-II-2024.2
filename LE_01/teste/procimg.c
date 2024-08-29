@@ -28,6 +28,12 @@ void geraImgGreyFull ( unsigned char img [640][480], unsigned char pixel){
         }
     }
 }
+//Q6
+void drwRect(unsigned char img[640][480], int x, int y, int larg, int alt, unsigned char pixel){
+    for(int i = y; i < y+alt; i++){
+        for(int j = x; j < x+larg; j++) img[i][j] = pixel;
+    }
+}
 //Q12
 void imgHistogram(unsigned char img[640][480], int hist[256]){
     int i,j;
