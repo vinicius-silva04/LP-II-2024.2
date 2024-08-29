@@ -30,7 +30,7 @@ void drwRect(unsigned char img[640][480], int x, int y, int larg, int alt, unsig
     *larg,alt: largura e altura do retangulo
 */
 //Q7
-void drwCirc(unsigned char img[tamanho][tamanho], int x, int y, int rad, unsigned char pixel);
+void drwCirc(unsigned char img[640][480], int x, int y, int rad, unsigned char pixel);
 /*
    *Função que desenha a área de um círculo.
    *Parâmetros:
