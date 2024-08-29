@@ -17,6 +17,15 @@ void geraImgGreyFull ( unsigned char img [640][480], unsigned char pixel);
     *Retorno:
     * int: número gerado que determina a intensidade.
 */
+//Q6
+void drwRect(unsigned char img[640][480], int x, int y, int larg, int alt, unsigned char pixel);
+/* 
+    *Função que preenche um retangulo com o valor do parâmetro pixel.
+    *img: Matriz onde a imagem será preenchida
+    *pixel: número que será preenchido o retangulo
+    *x,y: coordenadas do vertice superior esquerdo do retangulo
+    *larg,alt: largura e altura do retangulo
+*/
 //Q12
 void imgHistogram(unsigned char img[640][480], int hist[256]);
 /*
