@@ -17,3 +17,13 @@ void geraImgGreyFull ( unsigned char img [640][480], unsigned char pixel);
     *Retorno:
     * int: número gerado que determina a intensidade.
 */
+//Q12
+void imgHistogram(unsigned char img[640][480], int hist[256]);
+/*
+    *Função que mostra de acordo com o índice do array a quantidade de pixels de intesidade.
+    *Parâmetro:
+    * img: imagem que os pixels serão analisados.
+    * hist: array que será preenchido pela quantidade de pixels de intensidade.
+    *Retorno:
+    * int: quantidade de pixels de intensidade em cada posição no array.
+*/
