@@ -67,6 +67,29 @@ int main(){
     }
     return 0;
 }
+//7
+#include <stdio.h>
+#include <math.h>
+#include "procimg.h"
+int main(){
+    unsigned char img[640][480], pixel = 178;
+    int i, j;
+  
+    for( i = 0; i < 640; i++){
+        for( j = 0; j < 480; j++){
+            img[i][j] = 176;
+        }
+    }
+    drwCirc(img,50, 50, 28, pixel);
+
+    for( i = 0; i < 640; i++){
+        printf("\n");
+        for( j = 0; j < 480; j++){
+            printf("%c", img[i][j]);
+        }
+    }
+    return 0;
+}
 //Q12
 #include <stdio.h>
 #include <stdlib.h>
