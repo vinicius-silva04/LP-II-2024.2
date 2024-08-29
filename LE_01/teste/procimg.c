@@ -28,3 +28,12 @@ void geraImgGreyFull ( unsigned char img [640][480], unsigned char pixel){
         }
     }
 }
+//Q12
+void imgHistogram(unsigned char img[640][480], int hist[256]){
+    int i,j;
+    for(i=0;i<640;i++){
+        for(j=0;j<480;j++){
+            hist[img[i][j]]++;
+        }
+    }
+}
