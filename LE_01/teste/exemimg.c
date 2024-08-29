@@ -12,7 +12,7 @@ int main(){
     printf("Pixel de intensidade qualquer: %d\n",gerarGreyPixel(0));   //Imprime qualquer intensidade
 return 0;
 }
-/*Q2
+//Q2
 #include <stdio.h>
 #include "procimg.h"
 int main(){
@@ -29,4 +29,3 @@ int main(){
     }
 return 0;
 }
-*/
