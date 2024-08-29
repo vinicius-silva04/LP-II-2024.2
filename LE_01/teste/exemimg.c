@@ -29,6 +29,28 @@ int main(){
     }
 return 0;
 }
+//Q6
+#include <stdio.h>
+#include "procimg.h"
+int main(){
+    int i, j;
+    unsigned char img[640][480], pixel = 255;
+
+    for( i = 0; i < 640; i++){
+        for( j = 0; j < 480; j++){
+            img[i][j] = 70;
+        }
+    }
+    drwRect(img, 2,2,400,400,pixel);
+
+    for( i = 0; i < 640; i++){
+        printf("\n");
+        for( j = 0; j < 480; j++){
+            printf("%c", img[i][j]);
+        }
+    }
+    return 0;
+}
 //Q12
 #include <stdio.h>
 #include <stdlib.h>
