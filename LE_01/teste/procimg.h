@@ -17,6 +17,9 @@ void geraImgGreyFull ( unsigned char img [640][480], unsigned char pixel);
     *Retorno:
     * int: número gerado que determina a intensidade.
 */
+//Q4
+void geraImgGreyW(unsigned char img[640][480]);
+/*função que preenche todos os pixels da matriz img com o valor 0*/
 //Q6
 void drwRect(unsigned char img[640][480], int x, int y, int larg, int alt, unsigned char pixel);
 /* 
