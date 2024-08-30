@@ -39,7 +39,7 @@ int main(){
     
  for( i = 0; i < 640; i++){
      for( j = 0; j < 480; j++){
-         printf("%c", img[i][j]);
+         printf("%u ", img[i][j]);
         }
      printf("\n");
     }
