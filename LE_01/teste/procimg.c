@@ -66,6 +66,25 @@ void drwCirc(unsigned char img[640][480], int x, int y, int rad, unsigned char p
         }
     }
 }
+//Q11
+void media_desvio (unsigned char img [640][480], double *desviop, double *media) {
+    double soma=0, diferenca=0;
+    //Soma de todos as intensidades dos pixels
+    for (i = 0; i<640; i++) {
+        for (j = 0; j<480; j++) {
+            soma += img [i][j];
+        }
+    }
+    *media = soma/(640*480);
+
+    //Desvio padrão = raiz de {[(img [i][j] - media)²]/total]}
+    for (i = 0; i<640; i++) {
+        for (j = 0; j<480; j++) {
+            diferenca +=  (img [i][j] - *media)*(img [i][j] - *media);
+        }
+    }
+    *desviop = sqrt (diferenca/(640*480));
+}
 //Q12
 void imgHistogram(unsigned char img[640][480], int hist[256]){
     int i,j;
