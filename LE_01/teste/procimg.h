@@ -39,6 +39,14 @@ void drwCirc(unsigned char img[640][480], int x, int y, int rad, unsigned char p
    *rad: raio da circunferência.
    *pixel: cor que será usada.
 */
+//Q11
+void media_desvio (unsigned char img [640][480], double *desviop, double *media);
+/*
+   *Função para calcular e retornar a média e o desvio padrão das intensidades dos pixels.
+   *img: imagem/matriz inserida pelo usuário.
+   *desviop: ponteiro que retornará o valor do desvio padrão;
+   *media: ponteiro que retornará o valor da média;
+*/
 //Q12
 void imgHistogram(unsigned char img[640][480], int hist[256]);
 /*
