@@ -90,6 +90,26 @@ int main(){
     }
     return 0;
 }
+//Q11
+#include <stdio.h>
+#include <math.h>
+
+int i, j;
+int main () {
+    unsigned char img [640][480];
+    double media=0, desviop=0;
+    printf ("Digite as intensidades de cada pixel (0-255)\n");
+    //Leitura das intensidades dos pixels da imagem
+    for (i = 0; i<640; i++) {
+        for (j = 0; j<480; j++) {
+            printf ("[%d][%d]: ", i, j);
+            scanf ("%hhu", &img [i][j]);
+        }
+    }
+    media_desvio (img, &desviop, &media);
+    printf ("\nMedia: %.2lf\nDesvio padrao: %.2lf\n", media, desviop);
+}
+
 //Q12
 #include <stdio.h>
 #include <stdlib.h>
