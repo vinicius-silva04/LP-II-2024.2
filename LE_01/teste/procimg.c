@@ -66,6 +66,20 @@ void drwCirc(unsigned char img[640][480], int x, int y, int rad, unsigned char p
         }
     }
 }
+//Q9
+int pixelMax(unsigned char img[640][480]) {
+    int max = 0; // Inicializa o valor máximo com 0
+    // Percorre todos os pixels da imagem
+    for (int i = 0; i < 480; i++) {
+        for (int j = 0; j < 640; j++) {
+            if (img[i][j] > max) {
+                max = img[i][j]; // Atualiza o valor máximo se encontrar um pixel com intensidade maior
+            }
+        }
+    }
+
+    return max;
+}
 //Q11
 void media_desvio (unsigned char img [640][480], double *desviop, double *media) {
     double soma=0, diferenca=0;
