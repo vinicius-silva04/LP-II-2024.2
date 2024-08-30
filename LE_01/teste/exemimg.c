@@ -120,12 +120,7 @@ int main() {
     for(i = 0; i < 640; i++){
         for(j = 0; j < 480; j++) img[i][j] = rand()%255;
     }
-    pixelMax(img);
-    
-    for(i = 0; i < 640; i++){
-        printf("\n");
-        for(j = 0; j < 480; j++) printf("%c", img[i][j]);
-    }
+    printf("Valor maximo: ", pixelMax(img);
 
     return 0;
 }
