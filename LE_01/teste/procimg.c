@@ -80,6 +80,19 @@ int pixelMax(unsigned char img[640][480]) {
 
     return max;
 }
+//Q10
+int pixelMin(unsigned char img[640][480]) {
+    int min = 255; // Inicializa o valor mínimo com o maior valor possível para um unsigned char
+    // Percorre todos os pixels da imagem
+    for (int i = 0; i < 640; i++) {
+        for (int j = 0; j < 480; j++) {
+            if (img[i][j] < min) {
+                min = img[i][j]; // Atualiza o valor mínimo se encontrar um pixel com intensidade menor
+            }
+        }
+    }
+    return min;
+}
 //Q11
 void media_desvio (unsigned char img [640][480], double *desviop, double *media) {
     double soma=0, diferenca=0;
