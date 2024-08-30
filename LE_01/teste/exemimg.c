@@ -29,6 +29,22 @@ int main(){
     }
 return 0;
 }
+//Q3
+#include <stdio.h>
+#include "procimg.h"
+int main(){
+ unsigned char img[640][480];
+
+ geraImgGreyB(img);
+    
+ for( i = 0; i < 640; i++){
+     for( j = 0; j < 480; j++){
+         printf("%c", img[i][j]);
+        }
+     printf("\n");
+    }
+    return 0;
+}
 //Q4
 #include <stdio.h>
 #include "procimg.h"
