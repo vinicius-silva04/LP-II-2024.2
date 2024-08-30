@@ -50,6 +50,12 @@ int pixelMax(unsigned char img [640][480]);
 /*   *Função para encontrar o valor máximo de um pixel na imagem
      *img: imagem/matriz aleatórtia
 */
+//Q10
+int pixelMin(unsigned char img[640][480]);
+/*   *Função para encontrar o valor mínimo de um pixel na imagem
+     *img: imagem/matriz aleatórtia
+*/
+      
 //Q11
 void media_desvio (unsigned char img [640][480], double *desviop, double *media);
 /*
