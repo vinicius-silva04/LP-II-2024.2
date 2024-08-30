@@ -13,7 +13,7 @@ int main () {
     for (i = 0; i<640; i++) {
         for (j = 0; j<480; j++) {
             printf ("[%d][%d]: ", i, j);
-            scanf ("%u", &img [i][j]);
+            scanf ("%hhu", &img [i][j]);
         }
     }
     media_desvio (img, &desviop, &media);
