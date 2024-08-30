@@ -28,6 +28,17 @@ void geraImgGreyFull ( unsigned char img [640][480], unsigned char pixel){
         }
     }
 }
+//Q3
+void geraImgGreyB(unsigned char img[640][480]){
+    int i, j;
+
+    for(i = 0; i < 640; i++){
+        for(j = 0; j < 480; j++){
+            img[i][j] = 0;
+        }
+    }
+}
+
 //Q4
 void geraImgGreyW(unsigned char img[640][480]){
     for(int i = 0; i < 640; i++){
