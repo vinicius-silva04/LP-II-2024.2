@@ -124,6 +124,28 @@ int main() {
 
     return 0;
 }
+//Q10
+#include <stdlib.h>
+#include <stdio.h>
+#include "procimg.h"
+
+int main() {
+     int i, j;
+    unsigned char img[640][480];
+    
+    srand(time(NULL));
+    
+    for(i = 0; i < 640; i++){
+        for(j = 0; j < 480; j++) img[i][j] = rand()%255;
+    }
+    pixelMin(img);
+    
+    for(i = 0; i < 640; i++){
+        printf("\n");
+        for(j = 0; j < 480; j++) printf("%c", img[i][j]);
+    }
+    return 0;
+}
 //Q11
 #include <stdio.h>
 #include <math.h>
