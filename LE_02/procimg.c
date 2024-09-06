@@ -14,10 +14,13 @@ void geraImgGreyB_R(unsigned char img[linha][coluna],int i ,int j){
 }
 
 //Q4
-void geraImgGreyW_R(unsigned char img[480][640],int i,int j){
-   if (i>=480 || j>=640) return;  // Condição de parada
+void preencherimg(unsigned char img[480][640],int pixel,int i,int j){
+    if(i>=480 || j>=640) return; //condição de parada
 
-    img[i][j] = 255; // Preenche o pixel atual com 255
-     geraImgGreyW_R(img,i,j+1);  // Vai para o próximo pixel da linha
-    if(j==0) geraImgGreyW_R(img,i+1,0);  // Vai para a próxima linha
+    img[i][j]=pixel; //preenche com o valor inserido
+    preencherimg(img,255,i,j+1); //preenche até o valor máximo de j
+    if(j==0)   preencherimg(img,255,i+1,0) //quando j chega no limite, vai para próxima linha
+}
+void geraImgGreyW_R(unsigned char img[480][640],int i,int j){
+    preencherimg(img,255,0,0);
 }
