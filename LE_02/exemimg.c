@@ -77,3 +77,26 @@ int main(){
 return 0;
 }
 */
+//Q5
+/*#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+    unsigned char img[480][640];
+    int i,j,cont=0;
+    srand(time(NULL));
+    geraImgGrey_R(img,0);
+    for(i=0;i<480;i++){
+        for(j=0;j<640;j++){
+            int k=img[i][j];
+            if(k>=0 && k<256){
+                cont++;
+            }else printf("Erro! img[%d][%d]: %u",i,j,img[i][j]);
+        }
+    }printf("Exemplo:\nimg[%d][%d]: %u",i,j,img[i-1][j-1]);
+    if(480*640==cont) printf("\n\nImagem gerada com sucesso");
+    else printf("Erro na imagem gerada");
+return 0;
+}
+*/
