@@ -24,3 +24,9 @@ void preencherimg(unsigned char img[480][640],int pixel,int i,int j){
 void geraImgGreyW_R(unsigned char img[480][640],int i,int j){
     preencherimg(img,255,0,0);
 }
+//Q5
+
+void geraImgGrey_R(unsigned char img[480][640],int tipo){
+    unsigned char k= geraGreyPixel(tipo);
+    void preencherimg(img,k);
+}
