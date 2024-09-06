@@ -16,10 +16,10 @@ void geraImgGreyB_R(unsigned char img[linha][coluna],int i ,int j);
     *i e j: variáveis para iterar entre as linhas e colunas da matriz
 */
 //Q4
-void geraImgGreyW_R(unsigned char img[480][640],int i, int j);
+void preencheimg(unsigned char img[480][640],int pixel,int i,int j);
+void geraImgGreyW_R(unsigned char img[480][640]);
 /*
     *Função que preenche uma imagem 640x480 com 255 utilizando de recursividade
     *Parâmetro:
     * img: matriz onde a imagem será preenchida.
-    *i e j: variáveis para iterar entre as linhas e colunas da matriz
 */
