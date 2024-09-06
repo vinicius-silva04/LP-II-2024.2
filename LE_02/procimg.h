@@ -27,3 +27,7 @@ void geraImgGreyW_R(unsigned char img[480][640]);
 void geraImgGrey_R(unsigned char img[480][640],int tipo);
 /*
    *Função que utilizando da função geraGreyPixel preenche a imagem com pixels aleatórios. 
+   *Parâmetro:
+   *img:matriz onde a imagem será preenchida.
+   *tipo: determina a probabilidade dos números aleatórios.
+*/
