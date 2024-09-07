@@ -1,8 +1,10 @@
 #include "procimg.c"
 #define linha 480
 #define coluna 640
+
 //Q1
-void geraLinhaR(unsigned char array [], int tipo, int N);
+void preencherarray(unsigned char array[640],int tipo, int N);
+void geraLinhaR(unsigned char array [], int tipo);
 unsigned char geraGreyPixel (int tipo);
 
 //Q2
