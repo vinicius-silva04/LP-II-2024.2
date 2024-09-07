@@ -1,3 +1,30 @@
+//Q1
+unsigned char geraGreyPixel (int tipo) {
+    unsigned char num;
+    int probabilidade = rand() % 100;
+    if(tipo < 0){
+       if (probabilidade < 80)      //80% de chance de cor escura
+            num = rand() % 128;
+       else                        //20% de chance de todas as cores
+            num = rand() % 256;
+    }
+    else if (tipo > 0) {
+        if (probabilidade < 80)             //80% de chance de cor clara
+            num = 128 + rand() % 128;       
+        else                            //20% de chance de todas as cores
+            num = rand() % 256;
+    }
+    else
+        num = rand() % 256;          //100% de chance de todas as cores
+    return num;
+}
+
+void geraLinhaR(unsigned char array [], int tipo) {
+    if (indice < 0) return;                   // para quando o array está totalmente preenchido
+    array [indice] = geraGreyPixel (tipo);   //preenche o array de N-1 até 0;
+    indice--;
+    geraLinhaR (array, tipo);
+}
 //Q2
 void geraImgGreyFull_R(unsigned char img[linha][coluna], unsigned char pixel, int i, int j){
     if(i == 0 && j == 0) return;    //quando i e j forem iguais a 0, a imagem estará completa, e a função encerra
