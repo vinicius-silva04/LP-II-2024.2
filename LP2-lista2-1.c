@@ -1,24 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#define N 640
 
 /*Preencher um array [640] com valores aleatórios criados a partir do tipo de
 intensidade inserido pelo usuário*/
 
-void geraLinhaR(unsigned char array [], int tipo, int N);
+int indice = N-1;
+
+void geraLinhaR(unsigned char array [], int tipo);
 unsigned char geraGreyPixel (int tipo);
 
 int main () {
-    int tipo, N = 640;
+    int tipo;
     unsigned char array [N];
     srand (time (NULL));
     printf (" tipo < 0 = cores mais escuras\n tipo > 0 = cores mais claras\n tipo == 0 = todas as intensidades\n");
     printf ("\nDigite o tipo de intensidade: ");
     scanf ("%d", &tipo);
-    geraLinhaR(array, tipo, N-1);         
-    for (int i = 0; i<N; i++) {               //imprimir o array
-        printf ("%hhu\n", array [i]);
+    geraLinhaR(array, tipo);         
+    for (int i = 0; i < N; i++) {
+        if (array[i] > 255) {     // Valor fora do intervalo esperado
+            printf ("Erro: O array contém valores fora do esperado.\n");
+            return 0;  
+        }
     }
+    printf ("\nArray preenchido corretamente!\n");
     return 0;
 }
 
@@ -42,8 +49,9 @@ unsigned char geraGreyPixel (int tipo) {
     return num;
 }
 
-void geraLinhaR(unsigned char array [], int tipo, int N) {
-    if (N<0) return;                     // verificação para determinar quando o array está totalmente preenchido
-    array [N] = geraGreyPixel (tipo);   //preenche o array de N até 0;
-    geraLinhaR (array, tipo, N-1);
+void geraLinhaR(unsigned char array [], int tipo) {
+    if (indice < 0) return;                   // para quando o array está totalmente preenchido
+    array [indice] = geraGreyPixel (tipo);    //preenche o array de N-1 até 0;
+    indice--;
+    geraLinhaR (array, tipo);
 }
