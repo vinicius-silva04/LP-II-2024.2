@@ -19,6 +19,8 @@ unsigned char geraGreyPixel (int tipo) {
     return num;
 }
 
+int indice = N-1;
+
 void geraLinhaR(unsigned char array [], int tipo) {
     if (indice < 0) return;                   // para quando o array está totalmente preenchido
     array [indice] = geraGreyPixel (tipo);   //preenche o array de N-1 até 0;
