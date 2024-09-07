@@ -1,4 +1,5 @@
-#include "procimg.c"
+#include <time.h>
+#include <stdlib.h>
 #define linha 480
 #define coluna 640
 //Q1
