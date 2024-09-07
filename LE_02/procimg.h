@@ -1,3 +1,6 @@
+#include "procimg.c"
+#define linha 480
+#define coluna 640
 //Q1
 void geraLinhaR(unsigned char array [], int tipo);
 /*
