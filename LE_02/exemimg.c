@@ -5,8 +5,6 @@
 #include <time.h>
 #define N 640
 
-Preenche um array [640] com valores aleatórios criados a partir do tipo de intensidade inserido pelo usuário
-
 int main () {
     int tipo;
     unsigned char array [N];
