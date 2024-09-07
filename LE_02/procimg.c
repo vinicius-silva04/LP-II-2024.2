@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #define linha 480
 #define coluna 640
+#define N 640
 //Q1
 unsigned char geraGreyPixel (int tipo) {
     unsigned char num;
