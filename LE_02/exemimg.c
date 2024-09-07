@@ -1,4 +1,30 @@
 #include "procimg.h"
+//Q1
+/*#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define N 640
+
+Preenche um array [640] com valores aleatórios criados a partir do tipo de intensidade inserido pelo usuário
+
+int main () {
+    int tipo;
+    unsigned char array [N];
+    srand (time (NULL));
+    printf (" tipo < 0 = cores mais escuras\n tipo > 0 = cores mais claras\n tipo == 0 = todas as intensidades\n");
+    printf ("\nDigite o tipo de intensidade: ");
+    scanf ("%d", &tipo);
+    geraLinhaR(array, tipo);         
+    for (int i = 0; i < N; i++) {
+        if (array[i] > 255) {     // Valor fora do intervalo esperado
+            printf ("Erro: O array contém valores fora do esperado.\n");
+            return 0;  
+        }
+    }
+    printf ("\nArray preenchido corretamente!\n");
+    return 0;
+} 
+*/
 //Q2
 /*#include <stdio.h>
 #define linha 480
