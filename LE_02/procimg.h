@@ -1,3 +1,17 @@
+//Q1
+void geraLinhaR(unsigned char array [], int tipo);
+/*
+   * Função que preenche um array [640] com valores aleatórios criados pelo geraGreyPixel (utiliza recursividade)
+   * Parâmetro:
+   * array: array que será preenchido.
+   * tipo: determina a probabilidade dos números aleatórios.
+*/
+unsigned char geraGreyPixel (int tipo);
+/*
+   * Função que gera números aleatórios de acordo com o tipo inserido pelo uuário
+   * Parâmetro:
+   * tipo: determina a probabilidade dos números aleatórios.
+*/
 //Q2
 void geraImgGreyFull_R(unsigned char img[linha][coluna], unsigned char pixel, int i, int j);
 /*
