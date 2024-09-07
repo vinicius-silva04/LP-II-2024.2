@@ -3,6 +3,7 @@
 #define linha 480
 #define coluna 640
 
+
 void preencherimg(unsigned char img[480][640],int pixel,int i,int j){
     if(i>=480 || j>=640) return; //condição de parada
 
@@ -31,11 +32,14 @@ unsigned char geraGreyPixel(int tipo) {
         num = rand() % 256;          //100% de chance de todas as cores
     return num;
 }
-
-void geraLinhaR(unsigned char array [], int tipo, int N) {
-    if (N<0) return;                     // verificação para determinar quando o array está totalmente preenchido
-    array [N-1] = geraGreyPixel (tipo);   //preenche o array de N até 0;
-    geraLinhaR (array, tipo, N-1);
+int N=640;
+void preencherarray(unsigned char array[640],int tipo, int N){
+     if (N<0) return;                     // verificação para determinar quando o array está totalmente preenchido
+    array [N-1] = geraGreyPixel (tipo);   //preenche o array de 640 até 0;
+    preencherarray(array, tipo,N-1);
+}
+void geraLinhaR(unsigned char array [640], int tipo) {
+   preencherarray(array,tipo,N);
 }
 
 //Q2
