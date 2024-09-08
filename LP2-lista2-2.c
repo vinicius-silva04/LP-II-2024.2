@@ -16,7 +16,6 @@ int main(){
 
     geraImgGreyFull_R(img, pixel);
 
-
     for(i = 0; i < linha; i++){                 // Verifica se a imagem foi gerada corretamente
         for(j = 0; j < coluna; j++){
             if(img[i][j] == pixel) soma++;
