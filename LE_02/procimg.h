@@ -92,6 +92,13 @@ int quantosPixelsAcimaDeInt_R(unsigned char img[linha][coluna], unsigned char in
   *img: matriz onde a imagem será preenchida.
   *inteiro: valor recebido. 
 */
-
+//Q14
+unsigned char pontoEquilibrio(unsigned char img[linha][coluna], unsigned char Int);
+/*
+  *Função que retorna qual pixel está mais próxio da média entre o maior pixel e o menor pixel
+  *Parametros:
+  *img: matriz onde a imagem será preencida.
+  *Int: valor retornado e usado para comparar qual a proximidade da média.
+*/
 
 
