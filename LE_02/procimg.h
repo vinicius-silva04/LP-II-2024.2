@@ -45,6 +45,22 @@ void geraImgGrey_R(unsigned char img[480][640],int tipo);
 /*
    *Função que utilizando da função geraGreyPixel preenche a imagem com pixels aleatórios. 
    *Parâmetro:
-   *img:matriz onde a imagem será preenchida.
+   *img: matriz onde a imagem será preenchida.
    *tipo: determina a probabilidade dos números aleatórios.
+*/
+//Q8
+void somaPorLinhas_R(unsigned char img[linha][coluna], int soma[linha]);
+/*
+  *Função que soma os elementos de cada linha da matriz.
+  *Parãmetros:
+  *img: matriz onde a imagem será preencida.
+  *soma: vetor soma por cada linha.
+*/
+//Q9
+void somaPorColunas_R(unsigned char img[linha][coluna], int soma[coluna]);
+/*
+  *Função que soma os elementos de cada coluna da matriz.
+  *Parãmetros:
+  *img: matriz onde a imagem será preencida.
+  *soma: vetor soma por cada coluna.
 */
