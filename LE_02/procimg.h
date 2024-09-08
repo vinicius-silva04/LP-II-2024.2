@@ -48,6 +48,20 @@ void geraImgGrey_R(unsigned char img[480][640],int tipo);
    *img: matriz onde a imagem será preenchida.
    *tipo: determina a probabilidade dos números aleatórios.
 */
+//Q6
+int pixelMax_R(unsigned char img[linha][coluna]);
+/*
+  *Função que compara todos os pixels da matriz, para descobrir qual é o maior valor.
+  *Parametros:
+  *img: matriz onde a imagem será preenchida.
+*/
+//Q7
+int pixelMin_R(unsigned char img[linha][coluna]);
+/*
+  *Função que compara todos os pixels da matriz, para descobrir qual é o menor valor.
+  *Parametros:
+  *img: matriz onde a imagem será preenchida.
+*/
 //Q8
 void somaPorLinhas_R(unsigned char img[linha][coluna], int soma[linha]);
 /*
@@ -64,3 +78,12 @@ void somaPorColunas_R(unsigned char img[linha][coluna], int soma[coluna]);
   *img: matriz onde a imagem será preencida.
   *soma: vetor soma por cada coluna.
 */
+//Q12
+int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int);
+/*
+  *Função que compara todos os pixels da matriz para descobrir quantos pixels tem valores menores que o valor recebido no parametro Int, exibindo a quantidade de valores menores que Int.
+  *Parametros:
+  *img: matriz onde a imagem será preenchida
+  *Int: valor recebido e usado como base de comparação, para descobrir qual valor é menor que Int. 
+*/
+
