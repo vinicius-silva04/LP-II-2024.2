@@ -25,7 +25,7 @@ void geraImgGreyFull_R(unsigned char img[linha][coluna], unsigned char pixel, in
     *i e j: variáveis para iterar entre as linhas e colunas da matriz
 */
 //Q3
-void geraImgGreyB_R(unsigned char img[linha][coluna],int i ,int j);
+void geraImgGreyB_R(unsigned char img[linha][coluna],int i,int j);
 /*
     *Função que preenche uma imagem 640x480 com 0 utilizando de recursividade
     *Parâmetro:
