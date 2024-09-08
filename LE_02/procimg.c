@@ -65,7 +65,7 @@ void geraImgGrey_R(unsigned char img[480][640],int tipo){
     void preencherimg(img,k);
 }
 //Q8
-int flag8 = -1;
+int flag8 = -1; //usei flag = -1 para na primeira iteração flag ser igual a 0, pra ficar igual ao primeiro elemento dos arrays
 void somaPorLinhas_R(unsigned char img[linha][coluna], int soma[linha]){
     flag8++;   //Essa flag conta as iterações, ajuda marcar coluna e linha, e marca o momento de mudança de posição do ponteiro soma.
     if(flag8 == linha * coluna){
@@ -78,7 +78,7 @@ void somaPorLinhas_R(unsigned char img[linha][coluna], int soma[linha]){
     somaPorLinhas_R(img, soma);  //Pula para a próxima iteração
 }
 //Q9
-int flag9 = -1;
+int flag9 = -1; //usei flag = -1 para na primeira iteração flag ser igual a 0, pra ficar igual ao primeiro elemento dos arrays
 void somaPorColunas_R(unsigned char img[linha][coluna], int soma[]){
     flag9++;   //Essa flag conta as iterações, ajuda marcar coluna e linha, e marca o momento de mudança de posição do ponteiro soma.
     if(flag9 == linha * coluna){
