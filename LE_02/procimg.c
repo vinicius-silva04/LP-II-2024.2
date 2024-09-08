@@ -65,26 +65,28 @@ void geraImgGrey_R(unsigned char img[480][640],int tipo){
     void preencherimg(img,k);
 }
 //Q8
+int flag8 = -1;
 void somaPorLinhas_R(unsigned char img[linha][coluna], int soma[linha]){
-    flag++;   //Essa flag conta as iterações, ajuda marcar coluna e linha, e marca o momento de mudança de posição do ponteiro soma.
-    if(flag == linha * coluna){
+    flag8++;   //Essa flag conta as iterações, ajuda marcar coluna e linha, e marca o momento de mudança de posição do ponteiro soma.
+    if(flag8 == linha * coluna){
         return;   //Quando todas as posições forem preenchidas, as iterações acabam
     }
     //(flag / linha): marca em qual linha está, só vai para a próxima linha quando soma todas os elementos da mesma linha
     //(flag % coluna): marca em qual coluna está, vai para a próximo elemento da linha até atingir o valor "coluna", quando alcança, volta a 0
     //A posição do ponteiro soma só deve mudar quando a linha mudar
-    soma[flag / linha] += img[flag / linha][flag % coluna]; //Realiza a soma em cada posição do vetor soma
+    soma[flag8 / linha] += img[flag8 / linha][flag8 % coluna]; //Realiza a soma em cada posição do vetor soma
     somaPorLinhas_R(img, soma);  //Pula para a próxima iteração
 }
 //Q9
+int flag9 = -1;
 void somaPorColunas_R(unsigned char img[linha][coluna], int soma[]){
-    flag++;   //Essa flag conta as iterações, ajuda marcar coluna e linha, e marca o momento de mudança de posição do ponteiro soma.
-    if(flag == linha * coluna){
+    flag9++;   //Essa flag conta as iterações, ajuda marcar coluna e linha, e marca o momento de mudança de posição do ponteiro soma.
+    if(flag9 == linha * coluna){
         return;   //Quando todas as posições forem preenchidas, as iterações acabam
     }
     //(flag / coluna): marca em qual coluna está, só vai para a próxima coluna quando soma todas os elementos da mesma coluna
     //(flag % linha): marca em qual linha está, vai para o próximo elemento da coluna até atingir o valor "linha", quando alcança, volta a 0
     //A posição do ponteiro soma só deve mudar quando a coluna mudar
-    soma[flag / coluna] += img[flag % linha][flag / coluna]; //Realiza a soma em cada posição do vetor soma
+    soma[flag9 / coluna] += img[flag9 % linha][flag9 / coluna]; //Realiza a soma em cada posição do vetor soma
     somaPorColunas_R(img, soma);   //Pula para a próxima iteração
 }
