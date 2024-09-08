@@ -196,3 +196,34 @@ int main(){
     return 0;
 }
 */
+//Q13
+/*
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(){
+    unsigned char img[linha][coluna];
+    int i, j, x, maior = 0, acima;
+    srand(time(NULL));
+
+    for(i = 0; i < linha; i++) {
+        for(j = 0; j < coluna; j++) {
+            img[i][j] = rand() % 256;
+        }
+    }
+    printf("Digite um valor inteiro: ");
+    scanf("%d", &x);
+
+    acima = quantosPixelsAcimaDeInt_R(img, x);
+
+    for(i = 0; i < linha; i++) {
+        for(j = 0; j < coluna; j++) {
+            if(img[i][j] > x) maior++;
+        }
+    }
+    if(maior == acima) printf("A funcao esta correta\n");
+    else printf("A funcao esta incorreta\n");
+
+    return 0;
+}
+*/
