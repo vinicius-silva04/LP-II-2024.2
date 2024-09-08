@@ -258,3 +258,7 @@ int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char I
 
     return aux_quantosPixelsAbaixoDeInt_R(img, Int, 0, 0, 0);// Inicializa a função auxliar, dentro da função principal, com os valores row(0), col(0), soma(0). Para que o laço de repetição seja feito da esquerda para a direita.
 }
+//Q13
+int quantosPixelsAcimaDeInt_R(unsigned char img[linha][coluna], unsigned char inteiro){
+    return linha*coluna - quantosPixelsAbaixoDeInt_R(img, inteiro) - quantosPixelsNaInt_R(img, inteiro); 
+}
