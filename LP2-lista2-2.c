@@ -1,38 +1,41 @@
 #include <stdio.h>
 
-#define linha 20
-#define coluna 20
+#define linha 150
+#define coluna 150
 
-void geraImgGreyFull_R(unsigned char img[linha][coluna], unsigned char pixel, int i, int j);
+int N = linha * coluna;
+
+void geraImgGreyFull_R(unsigned char img[linha][coluna], unsigned char pixel);
 
 int main(){
-    unsigned char img[linha][coluna], pixel;
-    int cont = 0;
-
+    unsigned char img[linha][coluna] = {0}, pixel;
+    int i, j, soma = 0;
+    
     printf("Digite o valor do pixel: ");
     scanf("%hhu", &pixel);
-    
-    geraImgGreyFull_R(img, pixel, linha, coluna);
-    
-    for(int i = 0; i < linha; i++){                                         // Verifica se a imagem foi gerada corretamente
-        for(int j = 0; j < coluna; j++){ 
-            if(img[i][j] != pixel){
-                printf("Erro: img[%d][%d] = %hhu\n", i, j, img[i][j]);          // Se algum pixel não for igual ao valor digitado, a imagem não foi gerada corretamente
-                return 0;
-            }
-            else cont++;                                        // Conta a quantidade de pixels gerados iguais ao valor digitado         
+
+    geraImgGreyFull_R(img, pixel);
+
+
+    for(i = 0; i < linha; i++){                 // Verifica se a imagem foi gerada corretamente
+        for(j = 0; j < coluna; j++){
+            if(img[i][j] == pixel) soma++;
         }
     }
 
-    if(linha * coluna == cont) printf("\n\nImagem gerada com sucesso!\n");     //linha * coluna representa a quantidade de pixels da imagem, que deve ser igual a cont
-    else printf("\n\nErro na geração da imagem!\n");
+    if(soma != linha*coluna) printf("erro");              //se a soma for diferente de linha*coluna, a imagem não foi gerada corretamente
+    else printf("deu certo");
 
+    
     return 0;
 }
 
-void geraImgGreyFull_R(unsigned char img[linha][coluna], unsigned char pixel, int i, int j){
-    if(i == 0 && j == 0) return;    //quando i e j forem iguais a 0, a imagem estará completa, e a função encerra
-    img[i-1][j-1] = pixel;          //atribui o valor do pixel na posição i-1 e j-1
-    if(j == 0) geraImgGreyFull_R(img, pixel, i-1, coluna);  //quando apenas j for 0, a linha i ja tera sido preenchida, e passamos para a proxima linha i-1, e voltamos para a primeira coluna->coluna
-    else geraImgGreyFull_R(img, pixel, i, j-1); //quando j for diferente de 0, preenchemos a mesma linha i, e passamos para a coluna j-1
+void geraImgGreyFull_R(unsigned char img[linha][coluna], unsigned char pixel){
+    if(N == 0){                     //testa se N chegou a 0
+        N = linha * coluna;          //reseta N para que a função possa ser chamada novamente
+        return;                      //encerra a função
+    }
+    N--;                            //decrementa N para controlar a quantidade de vezes que a função foi chamada
+    img[0][0] = pixel;              //atribui o valor 0 ao pixel atual
+    geraImgGreyFull_R(&img[0][1], pixel);     //chama a função novamente, passando o endereço do próximo pixel
 }
