@@ -124,3 +124,73 @@ int main(){
 return 0;
 }
 */
+//Q8
+/*
+int main(){
+    unsigned char img[linha][coluna];
+    int soma[linha] = {0}, i = 0, j = 0, somaparcial = 0;    //somaparcial será usado para verificação de cada soma
+    srand(time(NULL));
+
+    //preenchimento da matriz
+    for(i = 0; i < linha; i++){
+        for(j = 0; j < coluna; j++){
+            img[i][j] = rand() % 256;
+        }
+    }
+
+    somaPorLinhas_R(img, soma);   //chamada da função
+
+     for(i = 0; i < linha; i++){
+        somaparcial = 0;
+        for(j = 0; j < coluna; j++){
+            somaparcial += img[i][j];   //Verificação de cada soma
+        }
+        if(soma[i] != somaparcial){
+            printf("Array soma = %d, soma parcial = %d", soma[i], somaparcial);  //Mostra o erro
+            printf("ERRO!!");   //Verificação, se a soma parcial for diferente da soma no respectivo local do array, é erro.
+            return 0;
+        }
+        
+    }
+    
+    //Mostra a ultima soma parcial e ultima soma do vetor
+    printf("ultima soma do array = %d, ultima soma parcial = %d", soma[linha - 1], somaparcial); 
+    printf("\nTUDO CERTO!!\n");
+
+    return 0;
+}
+*/
+//Q9
+/*
+int main(){
+    unsigned char img[linha][coluna] = {0};
+    int i = 0, j = 0, soma[coluna] = {0}, somaparcial = 0;   
+    srand(time(NULL));
+
+    //preenchimento da matriz
+     for(i = 0; i < linha; i++){
+        for(j = 0; j < coluna; j++){
+            img[i][j] = rand() % 256;
+        }
+    }
+    
+    somaPorColunas_R(img, soma);
+    for(j = 0; j < coluna; j++){
+        somaparcial = 0;
+        for(i = 0; i < linha; i++){
+            somaparcial += img[i][j];   //somaparcial será usado para verificação de cada soma
+        }
+        if(soma[j] != somaparcial){
+            printf("Array soma = %d, soma parcial = %d", soma[j], somaparcial);  // Mostra o erro
+            printf("\nERRO!!\n");   //Verificação, se a soma parcial for diferente da soma no respectivo local do array, é erro.
+            return 0;
+        }
+    }
+
+    //Mostra a ultima soma parcial e ultima soma do vetor
+    printf("ultima soma array = %d, ultima soma parcial = %d\n", soma[coluna - 1], somaparcial); 
+    printf("\nTUDO CERTO!!\n");
+        
+    return 0;
+}
+*/
