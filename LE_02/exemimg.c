@@ -24,7 +24,8 @@ int main () {
 } 
 */
 //Q2
-/*#include <stdio.h>
+/*
+#include <stdio.h>
 #define linha 480
 #define coluna 640
 int main(){
@@ -34,17 +35,17 @@ int main(){
     printf("Digite o valor do pixel: ");
     scanf("%hhu", &pixel);
     
-    geraImgGreyFull_R(img, pixel, linha, coluna);
+    geraImgGreyFull_R(img, pixel, 480, 640);
     
     for(int i = 0; i < linha; i++){                                         // Verifica se a imagem foi gerada corretamente
         for(int j = 0; j < coluna; j++){ 
             if(img[i][j] != pixel){
-                printf("Erro: img[%d][%d] = %hhu\n", i, j, img[i][j]);          // Se algum pixel não for igual ao valor digitado, a imagem não foi gerada corretamente
+                printf("Erro: img[%d][%d] = %u\n", i, j, img[i][j]);          // Se algum pixel não for igual ao valor digitado, a imagem não foi gerada corretamente
                 return 0;
             }
             else cont++;                                        // Conta a quantidade de pixels gerados iguais ao valor digitado         
         }
-    }
+    }printf("Exemplo:\nimg[%d][%d]: %u",linha,coluna,img[linha-1][coluna-1]);
 
     if(linha * coluna == cont) printf("\n\nImagem gerada com sucesso!\n");     //linha * coluna representa a quantidade de pixels da imagem, que deve ser igual a cont
     else printf("\n\nErro na geração da imagem!\n");
@@ -53,19 +54,21 @@ int main(){
 }
 */
 //Q3
-/*#include <stdio.h>
+/*
+#include <stdio.h>
 #define linha 480
 #define coluna 640
 int main(){
     unsigned char img[linha][coluna];
     int cont = 0;
    
-    geraImgGreyB_R(img, linha, coluna);
+    geraImgGreyB_R(img,linha,coluna);
     
     for(int i = 0; i < linha; i++){                                         // Verifica se a imagem foi gerada corretamente
         for(int j = 0; j < coluna; j++){ 
             if(img[i][j] != 0){
-                printf("Erro: img[%d][%d] = %hhu\n", i, j, img[i][j]);          // Se algum pixel não for igual a 0, a imagem não foi gerada corretamente
+                printf("Erro: img[%d][%d] = %u\n", i, j, img[i][j]);          // Se algum pixel não for igual a 0, a imagem não foi gerada corretamente
+                return 0;
             }
             else cont++;                                        // Conta a quantidade de pixels gerados iguais a 0        
         }
@@ -77,7 +80,6 @@ int main(){
     return 0;
 }
 */
-
 //Q4
 /*#include <stdio.h>
 
@@ -90,7 +92,10 @@ int main(){
         for(j = 0; j < 640; j++){ 
             if(img[i][j] == 255){
             cont++;                                        // Conta a quantidade de pixels gerados iguais a 255      
-            }else printf("Erro! img[%d][%d]: %u",i,j,img[i][j]);
+            }else{
+                printf("Erro! img[%d][%d]: %u",i,j,img[i][j]);
+                return 0;
+            }
         }
     }printf("Exemplo:\nimg[%d][%d]: %u",i,j,img[i-1][j-1]);
     if(480*640 == cont) printf("\n\nImagem gerada com sucesso!\n");     //linha * coluna representa a quantidade de pixels da imagem, que deve ser igual a cont
@@ -102,7 +107,8 @@ return 0;
 }
 */
 //Q5
-/*#include <stdio.h>
+/*
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
