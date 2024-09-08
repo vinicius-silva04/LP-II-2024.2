@@ -84,4 +84,14 @@ int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char I
   *img: matriz onde a imagem será preenchida
   *Int: valor recebido e usado como base de comparação, para descobrir qual valor é menor que Int. 
 */
+//Q13
+int quantosPixelsAcimaDeInt_R(unsigned char img[linha][coluna], unsigned char inteiro);
+/*
+  *Função que retorna quantos pixels tem valor maior que o valor recebido no parametro inteiro.
+  *Parametros:
+  *img: matriz onde a imagem será preenchida.
+  *inteiro: valor recebido. 
+*/
+
+
 
