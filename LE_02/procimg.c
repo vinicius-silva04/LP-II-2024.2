@@ -263,3 +263,26 @@ int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char I
 int quantosPixelsAcimaDeInt_R(unsigned char img[linha][coluna], unsigned char inteiro){
     return linha*coluna - quantosPixelsAbaixoDeInt_R(img, inteiro) - quantosPixelsNaInt_R(img, inteiro); 
 }
+//Q14
+int flag14 = 0;
+unsigned char pontoEquilibrio(unsigned char img[linha][coluna], unsigned char Int){
+    flag14++;   //Contador para saber quando parar as iterações
+    unsigned char reserva;  //valor reserva
+    int a, b, media;
+    a = pixelMax_R(img);
+    b = pixelMin_R(img);
+    media = (a + b)/2;  //recebe a media entre o maior e menor elemento da matriz
+
+    reserva = *img;
+    if(reserva == media){
+        Int = reserva;  //se reserva for igual à média, as iterações acabam e retorna Int com o mesmo valor de reserva
+        return Int;
+    }
+    else if(abs(reserva - media) < abs(Int - media)){
+        Int = reserva;  //se reserva for mais proximo da média que Int, Int será substituído pelo novo valor 
+    }
+    if(flag14 == linha * coluna){
+        return Int;  //quando flag chega no limite de tamanho, as iterações acabam
+    }
+    pontoEquilibrio(*img+1, Int); //Retorna o próximo elemento da matriz
+}
