@@ -252,7 +252,7 @@ int main(){
                 Int = reserva;    //Verificação do valor mais próximo da média
                 break;
             }
-            else if(abs(reserva - media) <= abs(Int - media)){
+            else if(abs(reserva - media) < abs(Int - media)){
                 Int = reserva;    //Verificação do valor mais próximo da média
             }
         }
