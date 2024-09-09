@@ -179,7 +179,7 @@ int flag8 = -1; //usei flag = -1 para na primeira iteração flag ser igual a 0,
 void somaPorLinhas_R(unsigned char img[linha][coluna], int soma[linha]){
     flag8++;   //Essa flag conta as iterações, ajuda marcar coluna e linha, e marca o momento de mudança de posição do ponteiro soma.
     if(flag8 == linha * coluna){
-        flag8 = 0; //reseta o flag para a função poder ser chamada de novo
+        flag8 = -1; //reseta o flag para a função poder ser chamada de novo
         return;   //Quando todas as posições forem preenchidas, as iterações acabam
     }
     //(flag / linha): marca em qual linha está, só vai para a próxima linha quando soma todas os elementos da mesma linha
@@ -193,7 +193,7 @@ int flag9 = -1; //usei flag = -1 para na primeira iteração flag ser igual a 0,
 void somaPorColunas_R(unsigned char img[linha][coluna], int soma[]){
     flag9++;   //Essa flag conta as iterações, ajuda marcar coluna e linha, e marca o momento de mudança de posição do ponteiro soma.
     if(flag9 == linha * coluna){
-        flag9 = 0; //reseta o flag para a função poder ser chamada de novo
+        flag9 = -1; //reseta o flag para a função poder ser chamada de novo
         return;   //Quando todas as posições forem preenchidas, as iterações acabam
     }
     //(flag / coluna): marca em qual coluna está, só vai para a próxima coluna quando soma todas os elementos da mesma coluna
