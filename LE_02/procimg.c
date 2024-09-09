@@ -282,6 +282,7 @@ unsigned char pontoEquilibrio(unsigned char img[linha][coluna], unsigned char In
         Int = reserva;  //se reserva for mais proximo da média que Int, Int será substituído pelo novo valor 
     }
     if(flag14 == linha * coluna){
+        flag14 = 0;  //reseta para a função poder ser chamada de novo
         return Int;  //quando flag chega no limite de tamanho, as iterações acabam
     }
     pontoEquilibrio(*img+1, Int); //Retorna o próximo elemento da matriz
