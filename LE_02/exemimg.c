@@ -198,9 +198,6 @@ int main(){
 */
 //Q13
 /*
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 int main(){
     unsigned char img[linha][coluna];
     int i, j, x, maior = 0, acima;
@@ -224,6 +221,46 @@ int main(){
     if(maior == acima) printf("A funcao esta correta\n");
     else printf("A funcao esta incorreta\n");
 
+    return 0;
+}
+*/
+//Q14
+/*
+int main(){
+    unsigned char img[linha][coluna], Int = 0, equilibrio;
+    int i, j, menorint, maiorint, media, reserva;
+    srand(time(NULL));
+
+    //preenchimento da matriz
+     for(i = 0; i < linha; i++){
+        for(j = 0; j < coluna; j++){
+            img[i][j] = rand() % 256;
+        }
+    }
+
+    menorint = pixelMin_R(img);
+    maiorint = pixelMax_R(img);
+    media = (menorint + maiorint)/2;
+
+    equilibrio = pontoEquilibrio(img, Int);
+
+    Int = 0;
+    for(i = 0; i < linha; i++){
+        for(j = 0; j < coluna; j++){
+            reserva = img[i][j];
+            if(reserva == media){
+                Int = reserva;    //Verificação do valor mais próximo da média
+                break;
+            }
+            else if(abs(reserva - media) <= abs(Int - media)){
+                Int = reserva;    //Verificação do valor mais próximo da média
+            }
+        }
+    }
+
+    if(Int != equilibrio){
+        printf("Int = %d, equilibrio = %d\nERRO!!!\n");   //Se for diferente lascou
+    }
     return 0;
 }
 */
