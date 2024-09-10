@@ -113,49 +113,51 @@ int pixelMax_R(unsigned char img[linha][coluna]) //Entrada da matriz
             return aux_pixelMax_R(img, row, col + 1, maxValue); // Chama a função auxiliar novamente, mas agora atualizando o valor da coluna, adicionando +1.
         }
     }
-    return aux_pixelMax_R(img, 0, 0, 0); // Inicializa a função auxliar, dentro da função principal, com os valores row(0), col(0), maxValue(0). Para que o laço de repetição seja feito da esquerda para a direita e que o maxValue seja o menor possível(0). 
+    int max = aux_pixelMax_R(img, 0, 0, 0); // Inicializa a função auxliar, dentro da função principal, com os valores row(0), col(0), maxValue(0). Para que o laço de repetição seja feito da esquerda para a direita e que o maxValue seja o menor possível(0).
+    return max; 
 }
 //Q7
 int pixelMin_R(unsigned char img[linha][coluna])//Entrada da matriz
 {
-    int aux_pixelMin_R(unsigned char img[linha][coluna], int row, int col, int minValue)
+    int min = aux_pixelMin_R(img, 0, 0, 255);// Inicializa a função auxliar, dentro da função principal, com os valores row(0), col(0), minValue(0). Para que o laço de repetição seja feito da esquerda para a direita e que o minValue seja o maior possível(255).
+    return min;
+}
+int aux_pixelMin_R(unsigned char img[linha][coluna], int row, int col, int minValue)
+{
+    if (row > linha - 1) // 480
     {
-        if (row == linha) // 480
-        {
-            return minValue;
-        }
-        /*
-            IF para verificar a condição de saída da recursividade, nesse caso, o método de saída será quando row(linha) for igual a 480, pois a matriz vai de 0 a 479, se chegar em 480
-            irá passar do tamanho da matriz.
-
-            Quando o caso for positivo, então ele deve retornar o valor minValue, que foi modificado ao decorrer do código para ter o menor valor da matriz.
-        */
-
-        if(col > coluna) // 639
-        {
-            return aux_pixelMin_R(img, row + 1, 0, minValue);
-        }
-        /*
-            IF para verficar se a coluna(col) passou de 639, que é o valor máximo que uma coluna pode ter nessa matriz.
-
-            Quando col == 640, ele irá chamar a função novamente chamando a matriz img, mas agora a row(linha) será adicionada +1, portanto a próxima linha. A col receberá o valor 0, para
-            começar a repetição novamente, e o valor minValue irá passar para a próxima função a ser chamada.
-        */
-        else // ELSE para caso col seja menor que 639, ocorrerá na maioria das vezes
-        {
-            if(minValue > img[row][col])
-            {
-                minValue = img[row][col];
-            }
-            /* 
-                IF para verificar se o valor da matriz img de posição [linha][coluna], row e col respectivamente, é menor que o minValue atual.
-                
-                Caso o IF seja positivo minValue recebe o valor img[row][col], portanto o menor valor atualmente.
-            */
-            return aux_pixelMin_R(img, row, col + 1, minValue); // Chama a função auxiliar novamente, mas agora atualizando o valor da coluna, adicionando +1.
-        }
+        return minValue;
     }
-    return aux_pixelMin_R(img, 0, 0, 255);// Inicializa a função auxliar, dentro da função principal, com os valores row(0), col(0), minValue(0). Para que o laço de repetição seja feito da esquerda para a direita e que o minValue seja o maior possível(255).
+    /*
+        IF para verificar a condição de saída da recursividade, nesse caso, o método de saída será quando row(linha) for igual a 480, pois a matriz vai de 0 a 479, se chegar em 480
+        irá passar do tamanho da matriz.
+
+        Quando o caso for positivo, então ele deve retornar o valor minValue, que foi modificado ao decorrer do código para ter o menor valor da matriz.
+    */
+
+    if(col > coluna - 1) // 639
+    {
+        return aux_pixelMin_R(img, row + 1, 0, minValue);
+    }
+    /*
+        IF para verficar se a coluna(col) passou de 639, que é o valor máximo que uma coluna pode ter nessa matriz.
+
+        Quando col == 640, ele irá chamar a função novamente chamando a matriz img, mas agora a row(linha) será adicionada +1, portanto a próxima linha. A col receberá o valor 0, para
+        começar a repetição novamente, e o valor minValue irá passar para a próxima função a ser chamada.
+    */
+    else // ELSE para caso col seja menor que 639, ocorrerá na maioria das vezes
+    {
+        if(minValue > img[row][col])
+        {
+            minValue = img[row][col];
+        }
+        /* 
+            IF para verificar se o valor da matriz img de posição [linha][coluna], row e col respectivamente, é menor que o minValue atual.
+                
+            Caso o IF seja positivo minValue recebe o valor img[row][col], portanto o menor valor atualmente.
+        */
+        return aux_pixelMin_R(img, row, col + 1, minValue); // Chama a função auxiliar novamente, mas agora atualizando o valor da coluna, adicionando +1.
+    }
 }
 //Q8
 int flag8 = -1; //usei flag = -1 para na primeira iteração flag ser igual a 0, pra ficar igual ao primeiro elemento dos arrays
