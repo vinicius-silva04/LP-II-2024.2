@@ -86,7 +86,7 @@ int pixelMax_R(unsigned char img[linha][coluna]) //Entrada da matriz
             *maxValue: responsável por inicializar, guardar e retornar o maior valor encontrado dentro da matriz, deve ser inicializado com 0.
     */
     {
-        if (row == 480)
+        if (row == linha) // 480
         {
             return maxValue;
         }
@@ -96,7 +96,7 @@ int pixelMax_R(unsigned char img[linha][coluna]) //Entrada da matriz
 
             Quando o caso for positivo, então ele deve retornar o valor maxValue, que foi modificado ao decorrer do código para ter o maior valor da matriz.
         */
-        if(col > 639)
+        if(col > coluna - 1) // 639
         {
             return aux_pixelMax_R(img, row + 1, 0, maxValue);
         }
@@ -137,7 +137,7 @@ int pixelMin_R(unsigned char img[linha][coluna])//Entrada da matriz
             *minValue: responsável por inicializar, guardar e retornar o menor valor encontrado dentro da matriz, deve ser inicializado com 255.
 
         */
-        if (row == 480)
+        if (row == linha) // 480
         {
             return minValue;
         }
@@ -148,7 +148,7 @@ int pixelMin_R(unsigned char img[linha][coluna])//Entrada da matriz
             Quando o caso for positivo, então ele deve retornar o valor minValue, que foi modificado ao decorrer do código para ter o menor valor da matriz.
         */
 
-        if(col > 639)
+        if(col > coluna) // 639
         {
             return aux_pixelMin_R(img, row + 1, 0, minValue);
         }
