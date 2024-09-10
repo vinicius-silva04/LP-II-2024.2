@@ -126,6 +126,67 @@ int main(){
 return 0;
 }
 */
+//Q6
+/*
+#define linha 480
+#define coluna 640
+
+int main(void)
+{
+    unsigned char img[linha][coluna];
+    int i, j, pixelMax;
+    // Iniciando a semente para gerar números aleatórios diferentes a cada execução
+    srand(time(NULL));
+
+    // Preenchendo a matriz img com valores aleatórios entre 0 e 255
+    for (i = 0; i < linha; i++)
+    {
+        for (j = 0; j < coluna; j++)
+        {
+            img[i][j] = rand() % 256;
+        }
+    }
+
+    pixelMax = pixelMax_R(img); // Coloca o valor da função pixelMax_R na variavel pixelMax
+    
+    printf("O maior valor eh %d", pixelMax);
+
+    return 0;
+}
+*/
+//Q7
+/*
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define linha 480
+#define coluna 640
+int pixelMin_R(unsigned char img[linha][coluna]); // Declaração completa da função
+
+int main(void)
+{
+    unsigned char img[linha][coluna];
+    int i, j, pixelMin;
+    // Iniciando a semente para gerar números aleatórios diferentes a cada execução
+    srand(time(NULL));
+
+    // Preenchendo a matriz img com valores aleatórios entre 0 e 255
+    for (i = 0; i < linha; i++)
+    {
+        for (j = 0; j < coluna; j++)
+        {
+            img[i][j] = rand() % 256;
+        }
+    }
+
+    pixelMin = pixelMin_R(img); // Coloca o valor da função pixelMax_R na variavel pixelMax
+
+    printf("O menor valor eh %d", pixelMin);
+
+    return 0;
+}
+*/
 //Q8
 /*
 int main(){
@@ -193,6 +254,34 @@ int main(){
     printf("ultima soma array = %d, ultima soma parcial = %d\n", soma[coluna - 1], somaparcial); 
     printf("\nTUDO CERTO!!\n");
         
+    return 0;
+}
+*/
+//Q12
+/*
+#define linha 480
+#define coluna 640
+
+int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int); // Declaração completa da função
+
+int main(void)
+{
+    unsigned char img[linha][coluna];
+    int i, j;
+    // Iniciando a semente para gerar números aleatórios diferentes a cada execução
+    srand(time(NULL));
+
+    // Preenchendo a matriz img com valores aleatórios entre 0 e 255
+    for (i = 0; i < linha; i++)
+    {
+        for (j = 0; j < coluna; j++)
+        {
+            img[i][j] = rand() % 256;
+        }
+    }
+
+    printf("Teve %d valores menor que o valor dado no parametro", quantosPixelsAbaixoDeInt_R(img, 20));
+
     return 0;
 }
 */
