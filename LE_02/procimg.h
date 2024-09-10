@@ -18,7 +18,7 @@ unsigned char geraGreyPixel (int tipo);
 //Q2
 void geraImgGreyFull_R(unsigned char img[linha][coluna], unsigned char pixel);
 /*
-    *Função que preenche uma imagem 640x480 com pixel utilizando de recursividade
+    *Função que preenche uma imagem 640x480 com pixel(escolhido pelo usuário) utilizando de recursividade
     *Parâmetro:
     * img: matriz onde a imagem será preenchida.
     *pixel: número que será preenchido a imagem.
@@ -75,6 +75,22 @@ void somaPorColunas_R(unsigned char img[linha][coluna], int soma[coluna]);
   *Parãmetros:
   *img: matriz onde a imagem será preencida.
   *soma: vetor soma por cada coluna.
+*/
+//Q10
+int somaPorTotal_R(unsigned char img[linha][coluna]);
+/* 
+  *Realiza e retorna a soma dos elementos da imagem img.
+  *Parâmetro:
+  * img: matriz onde a imagem será preenchida
+*/
+//Q11
+int quantosPixelsNaInt_R (unsigned char img[linha][coluna], unsigned char inte);
+/* 
+    *retorna a quantidade de pixels, na imagem img, que possuem uma intensidade 
+     específica int.
+    *Parâmetros:
+      *Img: matriz onde a imagem será preenchida
+      *inte:número que vai olhar a frequência da intensidade
 */
 //Q12
 int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int);
