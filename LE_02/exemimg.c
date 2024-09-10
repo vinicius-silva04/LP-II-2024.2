@@ -257,6 +257,31 @@ int main(){
     return 0;
 }
 */
+//Q10
+/*
+int main() {
+    unsigned char img[linha][coluna];
+    int soma;
+
+    // Preenche a matriz img com o valor 1 em todas as posições
+    for (int i = 0; i < linha; i++) {
+        for (int j = 0; j < coluna; j++) {
+            img[i][j] = 1;
+        }
+    }
+
+    // Calcula a soma dos elementos da matriz usando a função recursiva
+    soma = somaPorTotal_R(img);
+
+    // Verifica se a soma calculada é igual ao número total de elementos (linha * coluna)
+    if (soma == linha * coluna)
+        printf("Soma total: %d\n", soma);
+    else
+        printf("Erro: soma incorreta.\n");
+
+    return 0;
+}
+*/
 //Q11
 /*
 #include <stdio.h>
