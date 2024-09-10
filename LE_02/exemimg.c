@@ -1,4 +1,6 @@
 #include "procimg.h"
+#define linha 480
+#define coluna 640
 //Q1
 /*#include <stdio.h>
 #include <stdlib.h>
@@ -127,10 +129,8 @@ return 0;
 }
 */
 //Q6
+#include <stdio.h>
 /*
-#define linha 480
-#define coluna 640
-
 int main(void)
 {
     unsigned char img[linha][coluna];
@@ -160,8 +160,7 @@ int main(void)
 #include <stdlib.h>
 #include <time.h>
 
-#define linha 480
-#define coluna 640
+
 int pixelMin_R(unsigned char img[linha][coluna]); // Declaração completa da função
 
 int main(void)
