@@ -77,14 +77,6 @@ void geraImgGrey_R(unsigned char img[480][640],int tipo){
 int pixelMax_R(unsigned char img[linha][coluna]) //Entrada da matriz
 {
     int aux_pixelMax_R(unsigned char img[linha][coluna], int row, int col, int maxValue)
-    /*
-        *Função auxiliar que recebe os parametros para fazer a função principal funcionar.
-        *Parametros:
-            *img: matriz onde a imagem será preencida.
-            *row: parametro que representa as linhas da matriz, e será constantemente atualizada, para ter o controle da recursividade.
-            *col: parametro que representa as colunas da matriz, e será constantemente atualizada, para ter o controle da recursividade.
-            *maxValue: responsável por inicializar, guardar e retornar o maior valor encontrado dentro da matriz, deve ser inicializado com 0.
-    */
     {
         if (row == linha) // 480
         {
@@ -128,15 +120,6 @@ int pixelMin_R(unsigned char img[linha][coluna])//Entrada da matriz
 {
     int aux_pixelMin_R(unsigned char img[linha][coluna], int row, int col, int minValue)
     {
-        /*
-        *Função auxiliar que recebe os parametros para fazer a função principal funcionar.
-        *Parametros:
-            *img: matriz onde a imagem será preencida.
-            *row: parametro que representa as linhas da matriz, e será constantemente atualizada, para ter o controle da recursividade.
-            *col: parametro que representa as colunas da matriz, e será constantemente atualizada, para ter o controle da recursividade.
-            *minValue: responsável por inicializar, guardar e retornar o menor valor encontrado dentro da matriz, deve ser inicializado com 255.
-
-        */
         if (row == linha) // 480
         {
             return minValue;
@@ -204,12 +187,7 @@ void somaPorColunas_R(unsigned char img[linha][coluna], int soma[]){
 }
 //Q12
 int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int)
-/*
-    *Função principal:
-    *Parametros:
-        *img: entrada da matriz.
-        *Int: entrada do valor que deve ser comparado para saber quantos valores são menores que ele.
-*/
+
 {
     int aux_quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int, int row, int col, int soma)
     /*
