@@ -185,6 +185,47 @@ void somaPorColunas_R(unsigned char img[linha][coluna], int soma[]){
     soma[flag9 / coluna] += img[flag9 % linha][flag9 / coluna]; //Realiza a soma em cada posição do vetor soma
     somaPorColunas_R(img, soma);   //Pula para a próxima iteração
 }
+//Q10
+int somaPorTotal_R(unsigned char img[linha][coluna]) {
+    static int L = linha-1, C = coluna-1, soma = 0;
+
+    // Se a L é menor que 0, significa que a soma de todos os elementos foi calculada
+    if (L < 0) {
+        return soma;
+    }
+
+    // Adiciona o valor do elemento atual à soma
+    soma += img[L][C];
+
+    // Move para a próxima coluna à esquerda
+    C--;
+
+    // Se a coluna é menor que 0, reseta a coluna para o último índice e move para a linha anterior
+    if (C < 0) {
+        C = coluna - 1;
+        L--;
+    }
+
+    // Chama a função recursivamente para processar a próxima posição
+    return somaPorTotal_R(img);
+}
+//Q11
+int L = 0, C = 0;  // declaração de variáveis globais para manipular na função
+
+int quantosPixelsNaInt_R (unsigned char img[linha][coluna], unsigned char inte) {
+    int count = 0;
+    if (L >= linha) return 0;          // verifica se todas as linhas estão preenchidas
+    if (img [L][C]==inte)     // contador de frequência do inte na img
+        count++;
+    C++;
+    if (C>=coluna) {        //se completar uma coluna, pula a linha e percorre as colunas dnv
+        C = 0;
+        L++;
+    }
+    // Retorna a soma da contagem de pixels encontrados no bloco atual e a contagem
+    // dos pixels encontrados nas chamadas recursivas seguintes.
+    return count + quantosPixelsNaInt_R (img, inte);
+}
 //Q12
 int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int)
 
