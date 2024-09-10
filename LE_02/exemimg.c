@@ -1,6 +1,5 @@
 #include "procimg.h"
-#define linha 480
-#define coluna 640
+
 //Q1
 /*#include <stdio.h>
 #include <stdlib.h>
@@ -135,7 +134,7 @@ return 0;
 int main(void)
 {
     unsigned char img[linha][coluna];
-    int i, j, pixelMax;
+    int i, j, pixelMax, max = 0;
     // Iniciando a semente para gerar números aleatórios diferentes a cada execução
     srand(time(NULL));
 
@@ -152,6 +151,16 @@ int main(void)
     
     printf("O maior valor eh %d", pixelMax);
 
+    for(i = 0; i<linha; i++){
+        for(j = 0; j<coluna; j++){
+            if(img[i][j] > max){
+                max = img[i][j];
+            }
+        }
+    }
+    if(max == pixelMax) printf("\nTudo certo\n");
+    else printf("\nErro\n");
+
     return 0;
 }
 */
@@ -162,12 +171,10 @@ int main(void)
 #include <time.h>
 
 
-int pixelMin_R(unsigned char img[linha][coluna]); // Declaração completa da função
-
 int main(void)
 {
     unsigned char img[linha][coluna];
-    int i, j, pixelMin;
+    int i, j, pixelMin, min;
     // Iniciando a semente para gerar números aleatórios diferentes a cada execução
     srand(time(NULL));
 
@@ -183,6 +190,17 @@ int main(void)
     pixelMin = pixelMin_R(img); // Coloca o valor da função pixelMax_R na variavel pixelMax
 
     printf("O menor valor eh %d", pixelMin);
+
+    for(i = 0; i< linha; i++){
+        for(j = 0; j< coluna; j++){
+            if(img[i][j] < min){
+                min = img[i][j];
+            }
+        }
+    }
+
+    if(min == pixelMin) printf("\nTudo certo\n");
+    else printf("\nErro\n");
 
     return 0;
 }
@@ -311,15 +329,10 @@ int main () {
 */
 //Q12
 /*
-#define linha 480
-#define coluna 640
-
-int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int); // Declaração completa da função
-
 int main(void)
 {
     unsigned char img[linha][coluna];
-    int i, j;
+    int i, j, min = 0;
     // Iniciando a semente para gerar números aleatórios diferentes a cada execução
     srand(time(NULL));
 
@@ -332,11 +345,22 @@ int main(void)
         }
     }
 
-    printf("Teve %d valores menor que o valor dado no parametro", quantosPixelsAbaixoDeInt_R(img, 20));
+    int x = quantosPixelsAbaixoDeInt_R(img, 20);
+    printf("Teve %d valores menor que o valor dado no parametro", x);
+
+    for(i = 0; i < linha; i++){
+        for(j = 0; j < coluna; j++){
+            if(img[i][j] < 20) min++;
+        }
+    }
+
+    if(min == x) printf("\nTudo certo\n");
+    else printf("\nErro\n");
 
     return 0;
 }
 */
+
 //Q13
 /*
 int main(){
@@ -400,7 +424,7 @@ int main(){
     }
 
     if(Int != equilibrio){
-        printf("Int = %d, equilibrio = %d\nERRO!!!\n");   //Se for diferente lascou
+        printf("Int = %d, equilibrio = %d\nERRO!!!\n", Int, equilibrio);   //Se for diferente lascou
     }
     return 0;
 }

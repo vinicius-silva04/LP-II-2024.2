@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#define linha 480
-#define coluna 640
+#define linha 420
+#define coluna 20
 #define N 640
 //Q1
 unsigned char geraGreyPixel (int tipo) {
@@ -74,10 +74,7 @@ void geraImgGrey_R(unsigned char img[480][640],int tipo){
     preencherimg(img,k,0,0);
 }
 //Q6
-int pixelMax_R(unsigned char img[linha][coluna]) //Entrada da matriz
-{
-    int aux_pixelMax_R(unsigned char img[linha][coluna], int row, int col, int maxValue)
-    {
+int aux_pixelMax_R(unsigned char img[linha][coluna], int row, int col, int maxValue){
         if (row > linha - 1) // 480
         {
             return maxValue;
@@ -113,15 +110,12 @@ int pixelMax_R(unsigned char img[linha][coluna]) //Entrada da matriz
             return aux_pixelMax_R(img, row, col + 1, maxValue); // Chama a função auxiliar novamente, mas agora atualizando o valor da coluna, adicionando +1.
         }
     }
+
+int pixelMax_R(unsigned char img[linha][coluna]){
     int max = aux_pixelMax_R(img, 0, 0, 0); // Inicializa a função auxliar, dentro da função principal, com os valores row(0), col(0), maxValue(0). Para que o laço de repetição seja feito da esquerda para a direita e que o maxValue seja o menor possível(0).
     return max; 
 }
 //Q7
-int pixelMin_R(unsigned char img[linha][coluna])//Entrada da matriz
-{
-    int min = aux_pixelMin_R(img, 0, 0, 255);// Inicializa a função auxliar, dentro da função principal, com os valores row(0), col(0), minValue(0). Para que o laço de repetição seja feito da esquerda para a direita e que o minValue seja o maior possível(255).
-    return min;
-}
 int aux_pixelMin_R(unsigned char img[linha][coluna], int row, int col, int minValue)
 {
     if (row > linha - 1) // 480
@@ -159,6 +153,12 @@ int aux_pixelMin_R(unsigned char img[linha][coluna], int row, int col, int minVa
         return aux_pixelMin_R(img, row, col + 1, minValue); // Chama a função auxiliar novamente, mas agora atualizando o valor da coluna, adicionando +1.
     }
 }
+int pixelMin_R(unsigned char img[linha][coluna])//Entrada da matriz
+{
+    int min = aux_pixelMin_R(img, 0, 0, 255);// Inicializa a função auxliar, dentro da função principal, com os valores row(0), col(0), minValue(0). Para que o laço de repetição seja feito da esquerda para a direita e que o minValue seja o maior possível(255).
+    return min;
+}
+
 //Q8
 int flag8 = -1; //usei flag = -1 para na primeira iteração flag ser igual a 0, pra ficar igual ao primeiro elemento dos arrays
 void somaPorLinhas_R(unsigned char img[linha][coluna], int soma[linha]){
@@ -229,22 +229,8 @@ int quantosPixelsNaInt_R (unsigned char img[linha][coluna], unsigned char inte) 
     return count + quantosPixelsNaInt_R (img, inte);
 }
 //Q12
-int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int)
-
-{
-    int aux_quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int, int row, int col, int soma)
-    /*
-        *Função auxiliar que recebe os parametros para fazer a função principal funcionar.
-        *Parametros:
-            *img: matriz onde a imagem será preencida.
-            *Int: valor recebido para servir de base de comparação.
-            *row: parametro que representa as linhas da matriz, e será constantemente atualizada, para ter o controle da recursividade.
-            *col: parametro que representa as colunas da matriz, e será constantemente atualizada, para ter o controle da recursividade.
-            *soma: Para somar quantos valores são menores que o parametro Int.
-
-    */
-    {
-        if(row == 480)
+int aux_quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int, int row, int col, int soma){
+        if(row > linha - 1) 
         {
             return soma;
         }
@@ -255,9 +241,10 @@ int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char I
            Quando o caso for positivo, então ele deve retornar o valor soma, que foi modificado ao decorrer do código para ter a soma da quantidade dos valores menores que Int da matriz.
         */
 
-        if(col > 639)
+        if(col > coluna - 1) 
         {
-            return aux_quantosPixelsAbaixoDeInt_R(img, Int, row + 1, 0, soma);
+            int abaixo = aux_quantosPixelsAbaixoDeInt_R(img, Int, row + 1, 0, soma);
+            return abaixo;
         }
         /*
             IF para verficar se a coluna(col) passou de 639, que é o valor máximo que uma coluna pode ter nessa matriz.
@@ -279,7 +266,8 @@ int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char I
             return aux_quantosPixelsAbaixoDeInt_R(img, Int, row, col + 1, soma); // Chama a função auxiliar novamente, mas agora atualizando o valor da coluna, adicionando +1.
         }
     }
-
+    
+int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int){
     return aux_quantosPixelsAbaixoDeInt_R(img, Int, 0, 0, 0);// Inicializa a função auxliar, dentro da função principal, com os valores row(0), col(0), soma(0). Para que o laço de repetição seja feito da esquerda para a direita.
 }
 //Q13
@@ -296,7 +284,7 @@ unsigned char pontoEquilibrio(unsigned char img[linha][coluna], unsigned char In
     b = pixelMin_R(img);
     media = (a + b)/2;  //recebe a media entre o maior e menor elemento da matriz
 
-    reserva = *img;
+    reserva = img[0][0];
     if(reserva == media){
         Int = reserva;  //se reserva for igual à média, as iterações acabam e retorna Int com o mesmo valor de reserva
         return Int;

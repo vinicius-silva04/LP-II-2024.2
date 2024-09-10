@@ -1,6 +1,4 @@
 #include "procimg.c"
-#define linha 480
-#define coluna 640
 //Q1
 void geraLinhaR(unsigned char array [], int tipo);
 /*
@@ -48,6 +46,7 @@ void geraImgGrey_R(unsigned char img[480][640],int tipo);
 */
 //Q6
 int pixelMax_R(unsigned char img[linha][coluna]);
+int aux_pixelMax_R(unsigned char img[linha][coluna], int row, int col, int maxValue);
 /*
   *Função que compara todos os pixels da matriz, para descobrir qual é o maior valor.
   *Parametros:
@@ -55,6 +54,7 @@ int pixelMax_R(unsigned char img[linha][coluna]);
 */
 //Q7
 int pixelMin_R(unsigned char img[linha][coluna]);
+int aux_pixelMin_R(unsigned char img[linha][coluna], int row, int col, int minValue);
 /*
   *Função que compara todos os pixels da matriz, para descobrir qual é o menor valor.
   *Parametros:
@@ -94,6 +94,7 @@ int quantosPixelsNaInt_R (unsigned char img[linha][coluna], unsigned char inte);
 */
 //Q12
 int quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int);
+int aux_quantosPixelsAbaixoDeInt_R(unsigned char img[linha][coluna], unsigned char Int, int row, int col, int soma);
 /*
   *Função que compara todos os pixels da matriz para descobrir quantos pixels tem valores menores que o valor recebido no parametro Int, exibindo a quantidade de valores menores que Int.
   *Parametros:
@@ -109,6 +110,7 @@ int quantosPixelsAcimaDeInt_R(unsigned char img[linha][coluna], unsigned char in
   *inteiro: valor recebido. 
 */
 //Q14
+
 unsigned char pontoEquilibrio(unsigned char img[linha][coluna], unsigned char Int);
 /*
   *Função que retorna qual pixel está mais próxio da média entre o maior pixel e o menor pixel
