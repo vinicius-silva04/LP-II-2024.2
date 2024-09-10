@@ -257,6 +257,33 @@ int main(){
     return 0;
 }
 */
+//Q11
+/*
+#include <stdio.h>
+
+int main () {
+    unsigned char img [linha][coluna], inte;
+    int i, j, count=0;
+    srand (time (NULL));
+    for (i = 0; i<linha; i++) {
+        for (j = 0; j<coluna; j++) {
+            img [i][j] = rand () % 256;     //preencher a img com numeros aleatorios
+        }
+    }
+    printf ("Digite o numero que quer encontrar: ");
+    scanf ("%hhu", &inte);      //pede para o usuário qual intensidade ele quer procurar
+    
+    for (i = 0; i<linha; i++) {
+        for (j = 0; j<coluna; j++) {
+            if (img[i][j]==inte) count++;   //contador de frequência do inte na img
+        }
+    }
+    if (count==quantosPixelsNaInt_R (img, inte))   //verifica se a função retorna a contagem correta
+        printf ("\nO numero %hhu apareceu %d vezes \n", inte, count);   //imprime a frequência se estiver correta
+    else
+        printf ("\nErro: Contagem incorreta.\n");  // exibe mensagem de erro se estiver incorreta
+}
+*/
 //Q12
 /*
 #define linha 480
