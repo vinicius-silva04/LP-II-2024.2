@@ -1,29 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define L 150
-#define C 200
+#define linha 150
+#define coluna 200
 
-/*int quantosPixelsNaInt_R(unsigned char img[480][640], unsigned char int) 
+/*int quantosPixelsNaInt_R(unsigned char img[linha][coluna], unsigned char int) 
 retorna a quantidade de pixels, na imagem img, que possuem uma intensidade 
 específica int.*/
 
-int quantosPixelsNaInt_R (unsigned char img[L][C], unsigned char inte);
+int quantosPixelsNaInt_R (unsigned char img[linha][coluna], unsigned char inte);
 
 int main () {
-    unsigned char img [L][C], inte;
+    unsigned char img [linha][coluna], inte;
     int i, j, count=0;
     srand (time (NULL));
-    for (i = 0; i<L; i++) {
-        for (j = 0; j<C; j++) {
+    for (i = 0; i<linha; i++) {
+        for (j = 0; j<coluna; j++) {
             img [i][j] = rand () % 256;     //preencher a img com numeros aleatorios
         }
     }
     printf ("Digite o numero que quer encontrar: ");
     scanf ("%hhu", &inte);      //pede para o usuário qual intensidade ele quer procurar
     
-    for (i = 0; i<L; i++) {
-        for (j = 0; j<C; j++) {
+    for (i = 0; i<linha; i++) {
+        for (j = 0; j<coluna; j++) {
             if (img[i][j]==inte) count++;   //contador de frequência do inte na img
         }
     }
@@ -33,17 +33,17 @@ int main () {
         printf ("\nErro: Contagem incorreta.\n");  // exibe mensagem de erro se estiver incorreta
 }
 
-int linha = 0, coluna = 0;  // declaração de variáveis globais para manipular na função
+int L = 0, C = 0;  // declaração de variáveis globais para manipular na função
 
-int quantosPixelsNaInt_R (unsigned char img[L][C], unsigned char inte) {
+int quantosPixelsNaInt_R (unsigned char img[linha][coluna], unsigned char inte) {
     int count = 0;
-    if (linha >= L) return 0;          // verifica se todas as linhas estão preenchidas
-    if (img [linha][coluna]==inte)     // contador de frequência do inte na img
+    if (L >= linha) return 0;          // verifica se todas as linhas estão preenchidas
+    if (img [L][C]==inte)     // contador de frequência do inte na img
         count++;
-    coluna++;
-    if (coluna>=C) {        //se completar uma coluna, pula a linha e percorre as colunas dnv
-        coluna = 0;
-        linha++;
+    C++;
+    if (C>=coluna) {        //se completar uma coluna, pula a linha e percorre as colunas dnv
+        C = 0;
+        L++;
     }
     // Retorna a soma da contagem de pixels encontrados no bloco atual e a contagem
     // dos pixels encontrados nas chamadas recursivas seguintes.
