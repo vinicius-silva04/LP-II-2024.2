@@ -78,7 +78,7 @@ int pixelMax_R(unsigned char img[linha][coluna]) //Entrada da matriz
 {
     int aux_pixelMax_R(unsigned char img[linha][coluna], int row, int col, int maxValue)
     {
-        if (row == linha) // 480
+        if (row > linha - 1) // 480
         {
             return maxValue;
         }
