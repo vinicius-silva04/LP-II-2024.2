@@ -129,8 +129,9 @@ return 0;
 }
 */
 //Q6
-#include <stdio.h>
 /*
+#include <stdio.h>
+
 int main(void)
 {
     unsigned char img[linha][coluna];
