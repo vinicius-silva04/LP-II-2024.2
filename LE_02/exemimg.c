@@ -7,7 +7,7 @@
 #define N 640
 
 int main () {
-    int tipo;
+    int tipo, escuro=0, claro=0;
     unsigned char array [N];
     srand (time (NULL));
     printf (" tipo < 0 = cores mais escuras\n tipo > 0 = cores mais claras\n tipo == 0 = todas as intensidades\n");
@@ -15,14 +15,16 @@ int main () {
     scanf ("%d", &tipo);
     geraLinhaR(array, tipo);         
     for (int i = 0; i < N; i++) {
-        if (array[i] > 255) {     // Valor fora do intervalo esperado
-            printf ("Erro: O array contém valores fora do esperado.\n");
-            return 0;  
-        }
+        if (array[i]<128) escuro++;
+        if (array[i]>=128) claro++;
     }
-    printf ("\nArray preenchido corretamente!\n");
+    if (tipo<0 && escuro>claro || tipo>0 && claro>escuro || tipo==0)
+        printf ("\nArray preenchido corretamente!\n");
+    else
+        printf ("\nErro: O array nao foi preenchido majoritariamente pelo tipo solicitado.\n");
+    printf ("Cores escuras: %d\nCores claras: %d\n", escuro, claro);
     return 0;
-} 
+}
 */
 //Q2
 /*
