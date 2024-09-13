@@ -29,15 +29,15 @@ void geraImgGreyB_R(unsigned char img[linha][coluna]);
     * img: matriz onde a imagem será preenchida.
 */
 //Q4
-void preencheimg(unsigned char img[480][640],int pixel,int i,int j);
-void geraImgGreyW_R(unsigned char img[480][640]);
+void preencheimg(unsigned char img[linha][coluna],int pixel,int i,int j);
+void geraImgGreyW_R(unsigned char img[linha][coluna]);
 /*
     *Função que preenche uma imagem 640x480 com 255 utilizando de recursividade
     *Parâmetro:
     * img: matriz onde a imagem será preenchida.
 */
 //Q5
-void geraImgGrey_R(unsigned char img[480][640],int tipo);
+void geraImgGrey_R(unsigned char img[linha][coluna],int tipo);
 /*
    *Função que utilizando da função geraGreyPixel preenche a imagem com pixels aleatórios. 
    *Parâmetro:
