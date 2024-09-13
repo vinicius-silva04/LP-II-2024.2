@@ -4,6 +4,15 @@
 #define linha 420
 #define coluna 20
 #define N 640
+
+void preencherimg(unsigned char img[linha][coluna],int pixel,int i,int j){
+    if(i>=linha || j>=coluna) return; //condição de parada
+
+    img[i][j]=pixel; //preenche com o valor inserido
+    preencherimg(img,pixel,i,j+1); //preenche até o valor máximo de j
+    if(j==0)   preencherimg(img,pixel,i+1,0); //quando j chega no limite, vai para próxima linha
+}
+
 //Q1
 unsigned char geraGreyPixel (int tipo) {
     unsigned char num;
@@ -36,14 +45,7 @@ void geraLinhaR(unsigned char array [], int tipo) {
 //Q2
 int L = 0, C = 0;
 void geraImgGreyFull_R(unsigned char img[linha][coluna], unsigned char pixel){
-    if(L==linha) return;
-    img[L][C] = pixel;              //atribui o valor 0 ao pixel atual
-    C++;
-    if (C==coluna) {
-        C = 0;
-        L++;
-    }
-    geraImgGreyFull_R(img, pixel);     //chama a função novamente, passando o endereço do próximo pixel
+    preencherimg(img,pixel,0,0);
 }
 //Q3
 void geraImgGreyB_R(unsigned char img[linha][coluna]){
@@ -51,13 +53,6 @@ void geraImgGreyB_R(unsigned char img[linha][coluna]){
 }
 
 //Q4
-void preencherimg(unsigned char img[linha][coluna],int pixel,int i,int j){
-    if(i>=linha || j>=coluna) return; //condição de parada
-
-    img[i][j]=pixel; //preenche com o valor inserido
-    preencherimg(img,pixel,i,j+1); //preenche até o valor máximo de j
-    if(j==0)   preencherimg(img,pixel,i+1,0); //quando j chega no limite, vai para próxima linha
-}
 void geraImgGreyW_R(unsigned char img[linha][coluna]){
     preencherimg(img,255,0,0);
 }
