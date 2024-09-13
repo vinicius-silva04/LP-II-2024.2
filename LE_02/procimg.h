@@ -1,4 +1,7 @@
 #include "procimg.c"
+
+void preencheimg(unsigned char img[linha][coluna],int pixel,int i,int j);
+
 //Q1
 void geraLinhaR(unsigned char array [], int tipo);
 /*
@@ -29,7 +32,6 @@ void geraImgGreyB_R(unsigned char img[linha][coluna]);
     * img: matriz onde a imagem será preenchida.
 */
 //Q4
-void preencheimg(unsigned char img[linha][coluna],int pixel,int i,int j);
 void geraImgGreyW_R(unsigned char img[linha][coluna]);
 /*
     *Função que preenche uma imagem 640x480 com 255 utilizando de recursividade
