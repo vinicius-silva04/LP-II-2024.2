@@ -268,7 +268,7 @@ int main () {
 
     // Verifica se a soma calculada é igual ao número total de elementos (linha * coluna)
     if (soma == linha * coluna)
-        printf("Soma total: %d\n", soma);
+        printf("TUDO CERTO!\nSoma total: %d\n", soma);
     else
         printf("Erro: soma incorreta.\n");
 
