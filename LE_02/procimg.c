@@ -34,27 +34,20 @@ void geraLinhaR(unsigned char array [], int tipo) {
     geraLinhaR (array, tipo);
 }
 //Q2
-int num2 = linha * coluna;
-
+int L = 0, C = 0;
 void geraImgGreyFull_R(unsigned char img[linha][coluna], unsigned char pixel){
-    if(num2 == 0){                     //testa se num2 chegou a 0
-        num2 = linha * coluna;          //reseta num2 para que a função possa ser chamada novamente
-        return;                      //encerra a função
+    if(L==linha) return;
+    img[L][C] = pixel;              //atribui o valor 0 ao pixel atual
+    C++;
+    if (C==coluna) {
+        C = 0;
+        L++;
     }
-    num2--;                            //decrementa num2 para controlar a quantidade de vezes que a função foi chamada
-    img[0][0] = pixel;              //atribui o valor 0 ao pixel atual
-    geraImgGreyFull_R(&img[0][1], pixel);     //chama a função novamente, passando o endereço do próximo pixel
+    geraImgGreyFull_R(img, pixel);     //chama a função novamente, passando o endereço do próximo pixel
 }
 //Q3
-int num3 = linha*coluna;
 void geraImgGreyB_R(unsigned char img[linha][coluna]){
-      if(num3 == 0){           //testa se num3 chegou a 0
-        num3 = linha * coluna;     //reseta num3 para que a função possa ser chamada novamente
-        return;             //encerra a função
-    }
-    num3--;                    //decrementa num3 para controlar a quantidade de vezes que a função foi chamada
-    img[0][0] = 0;          //atribui o valor 0 ao pixel atual
-    geraImgGreyB_R(&img[0][1]);     //chama a função novamente, passando o endereço do próximo pixel
+      geraImgGreyFull_R (img, 0);
 }
 
 //Q4
