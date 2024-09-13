@@ -29,7 +29,7 @@ int main () {
 
     printf("QUESTAO 2:\n\n");
 
-    unsigned char img[linha][coluna] = {0}, pixel;
+    unsigned char img[linha][coluna], pixel;
     int i, j, soma = 0;
 
     printf("Digite o valor do pixel: ");
@@ -50,7 +50,7 @@ int main () {
     else printf("\nDeu certo! Confira uma parte da imagem:\n");
     for (i=0; i<5; i++) {
         for (j=0; j<5; j++) {
-            printf ("%3hhu", img[i][j]);
+            printf ("%3u", img[i][j]);
         }
         printf ("\n");
     }
@@ -307,12 +307,12 @@ int main () {
     
     srand(time(NULL));
 
-    // Preenchendo a matriz img com 0
+    // Preenchendo a matriz img com 255
     for (i = 0; i < linha; i++)
     {
         for (j = 0; j < coluna; j++)
         {
-            img[i][j] = 0;
+            img[i][j] = 255;
         }
     }
 
@@ -338,7 +338,7 @@ int main () {
     int maior = 0, acima = 0,q13;
     srand(time(NULL));
 
-    for(i = 0; i < linha; i++){         //Imagem completada com 0 em todas as posições.
+    for(i = 0; i < linha; i++){         //Imagem completada com 255 em todas as posições.
         for(j = 0; j < coluna; j++){
             img[i][j] = 255;              
         }
