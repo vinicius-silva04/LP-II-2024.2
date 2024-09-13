@@ -69,9 +69,16 @@ void geraImgGreyW_R(unsigned char img[480][640]){
     preencherimg(img,255,0,0);
 }
 //Q5
-void geraImgGrey_R(unsigned char img[480][640],int tipo){
-    unsigned char k= geraGreyPixel(tipo);
-    preencherimg(img,k,0,0);
+int L = 0, C = 0;
+void geraImgGrey_R(unsigned char img[linha][coluna], int tipo){
+    if (L==linha) return;
+    img [L][C] = geraGreyPixel(tipo);
+    C++;
+    if (C==coluna) {
+        L++;
+        C = 0;
+    }
+    return geraImgGrey_R (img, tipo);
 }
 //Q6
 int aux_pixelMax_R(unsigned char img[linha][coluna], int row, int col, int maxValue){
