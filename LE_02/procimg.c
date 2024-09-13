@@ -58,7 +58,7 @@ void preencherimg(unsigned char img[480][640],int pixel,int i,int j){
     preencherimg(img,pixel,i,j+1); //preenche até o valor máximo de j
     if(j==0)   preencherimg(img,pixel,i+1,0); //quando j chega no limite, vai para próxima linha
 }
-void geraImgGreyW_R(unsigned char img[480][640]){
+void geraImgGreyW_R(unsigned char img[linha][coluna]){
     preencherimg(img,255,0,0);
 }
 //Q5
