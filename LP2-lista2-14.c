@@ -1,26 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define coluna 300
-#define linha 300
+#define coluna 250
+#define linha 250
 #define MAX 255
 #define MAXDIF 65025  // 255 * 255
 
 unsigned char pontoEquilibrio(unsigned char img[linha][coluna]);
+unsigned char pontoEquilibrio_aux(unsigned char img[linha][coluna], int i, int dif_esquerda, int dif_direita, int menordif, unsigned char equilibrio);
 void histograma (unsigned char img [linha][coluna], int L, int C);
 void preencherimg (unsigned char img [linha][coluna], int L, int C, int tipo);
 unsigned char geraGreyPixel(int tipo);
 
-int hist [MAX+1];
+int hist [MAX+1] = {0};
 
 int main() {
     unsigned char img[linha][coluna], equilibrio;
-    int tipo;
+    int tipo=11;
     srand (time (NULL));
-    preencherimg (img, 0, 0, 200);
+    preencherimg (img, 0, 0, tipo);
     histograma (img, 0, 0);
     equilibrio = pontoEquilibrio(img);
-    printf("Ponto de Equilíbrio: %hhu\n", equilibrio);
+    printf("Ponto de Equilibrio: %hhu\n", equilibrio);
+    
+    // Verificação do ponto de equilíbrio com base no tipo
+    if (tipo < 0 && equilibrio >= 50 && equilibrio <= 100)
+        printf("O ponto de equilibrio esta dentro do intervalo esperado.\n");
+    else if (tipo > 0 && equilibrio >= 180 && equilibrio <= 220)
+        printf("O ponto de equilibrio esta dentro do intervalo esperado.\n");
+    else if (tipo == 0 && equilibrio >= 100 && equilibrio <= 150)
+        printf("O ponto de equilibrio esta dentro do intervalo esperado.\n");
+    else
+        printf("ERRO: O ponto de equilibrio esta fora do intervalo esperado.\n");
     return 0;
 }
 
@@ -44,9 +55,9 @@ unsigned char geraGreyPixel(int tipo) {
     }
     else if (tipo > 0) {
         if (probabilidade < 80)             //80% de chance de cor clara
-            num = 128 + rand() % 128;       //20% de chance de todas as cores
+            num = 128 + rand() % 128;       
         else
-            num = rand() % 256;
+            num = rand() % 256;            //20% de chance de todas as cores
     }
     else
         num = rand() % 256;          //100% de chance de todas as cores
@@ -63,27 +74,24 @@ void histograma (unsigned char img [linha][coluna], int L, int C) {
 }
 
 unsigned char pontoEquilibrio(unsigned char img[linha][coluna]) {
-    static int i = 0;
-    static int dif_esquerda = 0;
-    static int dif_direita = linha * coluna;
-    static int menordif = MAXDIF;     // Maior diferença possível
-    static unsigned char equilibrio = 0;
+    return pontoEquilibrio_aux (img, 0, 0, linha*coluna, MAXDIF, 0);
 
     /* Explicação do maxdif: A diferença máxima possivel é 255 - 0 = 255.
        O array tem 255 posições. Logo, se todas as diferenças individuais 
        entre esquerda e direita forem 255,serão 255 valores 255 vezes. Sendo 
        assim, o valor maximo é 255*255 = 65025 */
-    
+}
+
+unsigned char pontoEquilibrio_aux(unsigned char img[linha][coluna], int i, int dif_esquerda, int dif_direita, int menordif, unsigned char equilibrio) {
     if (i > MAX) return equilibrio;    // condição de parada
     
     // Atualizar as diferenças
     dif_direita -= hist[i];
     dif_esquerda += hist[i];
-    int dif = (dif_esquerda > dif_direita) ? (dif_esquerda - dif_direita) : (dif_direita - dif_esquerda);
+     int dif = (dif_esquerda > dif_direita) ? (dif_esquerda - dif_direita) : (dif_direita - dif_esquerda);
     if (dif < menordif) {   //Atualizar o ponto de equilíbrio se necessário
         menordif = dif;
         equilibrio = (unsigned char) i;
     }
-    i++;    //incremento para percorrer o array
-    return pontoEquilibrio(img);
+    return pontoEquilibrio_aux(img, i+1, dif_esquerda, dif_direita, menordif, equilibrio);
 }
