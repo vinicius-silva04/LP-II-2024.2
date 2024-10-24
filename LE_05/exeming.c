@@ -43,10 +43,7 @@ int main() {
     }
     //Libera a memoria alocada
 
-    for (i = 0; i < imagem.nLin; i++) {
-        free(imagem.img[i]);
-    }
-    free(imagem.img);
+    liberaImagemGray(imagem);
     printf("\n------------------------------------------------------------\n");
     
     // Questão 2: Aloca a imagem RGB
