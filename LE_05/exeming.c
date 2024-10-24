@@ -218,9 +218,6 @@ int main() {
 
     printf("\n------------------------------------------------------------\n");
 
-    return 0;
-}
-
     //funcoes 6-10
     imgGray imagemC;
     imgRGB imagemCrgb;
@@ -304,3 +301,8 @@ int main() {
     free(imagemCrgb._img);
     free(imagemCrgb.img);
     free(vet);
+    free(&imagemC);
+    free(&imagemCrgb);
+
+return 0;
+}
