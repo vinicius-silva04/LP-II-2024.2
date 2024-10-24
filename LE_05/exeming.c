@@ -393,6 +393,7 @@ int main(){
     // Imprime uma linha separadora para o fim da questão
     printf("\n------------------------------------------------------------\n");
 
+    
     //Q15
     printf("QUESTAO 15:\n\n");
 
