@@ -301,8 +301,6 @@ int main() {
     free(imagemCrgb._img);
     free(imagemCrgb.img);
     free(vet);
-    free(&imagemC);
-    free(&imagemCrgb);
 
 return 0;
 }
