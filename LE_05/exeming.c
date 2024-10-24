@@ -87,10 +87,7 @@ int main() {
         printf("Imagem RGB gerada com sucesso!\n");
     }
     //Libera a memoria alocada
-    for (i = 0; i < imagem2.nLin; i++) {
-        free(imagem2.img[i]);
-    }
-    free(imagem2.img);
+    liberaImagemRGB(imagem2);
     printf("\n------------------------------------------------------------\n");
     
     // Questão 3: Preenchimento com um valor específico
