@@ -84,3 +84,21 @@ int geraImgGray(imgGray img, int tipo);
 
 //Q10
 int geraImgRGB(imgRGB img, int tipo);
+
+//Q13
+int* somaPorLinhasGray(imgGray img);
+/*
+  *Função que soma os elementos das linhas da matriz gray
+  *Parâmetro:
+  *img: Imagem já alocada previamente
+  *Retorno:
+  *Array inteiro somaL (A soma de cada linha)
+*/
+int* somaPorColunasGray(imgGray img);
+/*
+  *Função que soma os elementos das colunas da matriz gray
+  *Parâmetro:
+  *img: Imagem já alocada previamente
+  *Retorno:
+  *Array inteiro somaC (A soma de cada coluna)
+*/
