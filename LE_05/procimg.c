@@ -27,6 +27,15 @@ struct imagens{
 };
 typedef struct imagens tImagens;
 
+//Função free
+void liberaImagemGray(imgGray img) {
+    // Liberar cada linha da imagem
+    for (int i = 0; i < img.nCol; i++) {
+        free(img.img[i]);  // Libera a linha i
+    }
+    // Liberar o ponteiro de ponteiros para as linhas
+    free(img.img);
+}
 
 //Q1
 imgGray alocaImagemGray(int nLin,int nCol){
