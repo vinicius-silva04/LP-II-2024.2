@@ -322,3 +322,23 @@ tRGB* somaPorColunasRGB(imgRGB img) {
     // Retorna o ponteiro para o array contendo as somas RGB de cada coluna
     return colunas;
 }
+
+//Q15
+// Função que calcula a soma total de todos os pixels em uma imagem em escala de cinza (Gray)
+int somaTotalGray(imgGray img) {
+    // Variável para armazenar a soma total dos pixels
+    int somaT15 = 0;
+
+    // Percorre todas as linhas da imagem
+    for (int i = 0; i < img.nLin; i++) {
+        // Percorre todas as colunas da linha atual
+        for (int j = 0; j < img.nCol; j++) {
+            // Soma o valor do pixel atual (img.img[i][j]) à soma total
+            somaT15 += img.img[i][j];
+        }
+    }
+
+    // Retorna a soma total de todos os pixels da imagem
+    return somaT15;
+}
+
