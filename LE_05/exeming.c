@@ -334,5 +334,65 @@ int main(){
     // Imprime uma linha separadora
     printf("\n------------------------------------------------------------\n");
 
+    //Q14
+    printf("QUESTAO 14:\n\n");
+
+    // Aloca uma imagem RGB com 250 linhas e 200 colunas
+    imgRGB img14 = alocaImagemRGB(250, 200);
+
+    // Declaração de ponteiros para armazenar as somas das linhas e colunas
+    tRGB *somaC14;
+    tRGB *somaL14;
+
+    // Preenche a imagem com valores constantes para os componentes RGB (todos os pixels terão R=1, G=1, B=1)
+    for (int i = 0; i < img14.nLin; i++) {
+        for (int j = 0; j < img14.nCol; j++) {
+            img14.img[i][j].R = 1;  // Atribui 1 ao componente Red (R)
+            img14.img[i][j].G = 1;  // Atribui 1 ao componente Green (G)
+            img14.img[i][j].B = 1;  // Atribui 1 ao componente Blue (B)
+        }
+    }
+
+    // Calcula a soma dos componentes RGB para cada linha e cada coluna
+    somaL14 = somaPorLinhasRGB(img14);  // Soma os valores de cada linha
+    somaC14 = somaPorColunasRGB(img14); // Soma os valores de cada coluna
+
+    // Imprime e verifica as somas das linhas
+    printf("linhas: \n");
+    for (int i = 0; i < img14.nLin; i++) {
+        // Verifica se a soma dos componentes R, G, B da linha i é igual ao número de colunas
+        if (somaL14[i].R != img14.nCol || somaL14[i].G != img14.nCol || somaL14[i].B != img14.nCol) {
+            printf("ERRO na funcao 14 de linhas!!!!! %d, %d, %d\n", somaL14[i].R, somaL14[i].G, somaL14[i].B);
+            break;  // Se houver erro, interrompe o laço
+        }
+        // Verifica se a última linha foi processada corretamente
+        if (i == img14.nCol - 1) {
+            printf("Deu certo na funcao 14 de linhas!\n");  // Imprime mensagem de sucesso se tudo estiver correto
+        }
+    }
+
+    // Imprime e verifica as somas das colunas
+    printf("\ncolunas: \n");
+    for (int i = 0; i < img14.nCol; i++) {
+        // Verifica se a soma dos componentes R, G, B da coluna i é igual ao número de linhas
+        if (somaC14[i].R != img14.nLin || somaC14[i].G != img14.nLin || somaC14[i].B != img14.nLin) {
+            printf("ERRO na funcao 14 de colunas!!!!! %d, %d, %d\n", somaC14[i].R, somaC14[i].G, somaC14[i].B);
+            break;  // Se houver erro, interrompe o laço
+        }
+        // Verifica se a última coluna foi processada corretamente
+        if (i == img14.nCol - 1) {
+            printf("Deu certo na funcao 14 de colunas!\n");  // Imprime mensagem de sucesso se tudo estiver correto
+        }
+    }
+
+    // Libera a memória alocada para a imagem e as somas
+    liberaImagemRGB(img14);
+    free(somaL14);
+    free(somaC14);
+
+    // Imprime uma linha separadora para o fim da questão
+    printf("\n------------------------------------------------------------\n");
+
+
     return 0;
 }
