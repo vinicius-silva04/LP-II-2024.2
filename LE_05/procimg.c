@@ -20,26 +20,36 @@ void liberaImagemRGB(imgRGB img) {
 
 //Q1
 imgGray alocaImagemGray(int nLin,int nCol){
-    imgGray imagem;
-    imagem.nLin = nLin;
-    imagem.nCol = nCol;
+    imgGray img;
+    
+    img.nLin = nLin;
+    img.nCol = nCol;
 
-    imagem.img = (unsigned char**) malloc(nLin * sizeof(uchar*));
-    if(imagem.img ==NULL){
-        imagem.img= NULL;
-        return imagem;
+   
+    //Aloca para um ponteiro de ponteiros
+    img.img = (uchar**) malloc(nLin * sizeof(uchar*));
+    if(img.img ==NULL){
+        img.img= NULL;
+        return img;
     }
     for(int i=0;i<nLin;i++){
-        imagem.img[i]= (uchar*)malloc(nCol* sizeof(uchar));
-        if(imagem.img[i]==NULL){
+        img.img[i]= (uchar*)malloc(nCol* sizeof(uchar));
+        if(img.img[i]==NULL){
             for(int j=0;j<nCol;j++){
-                free(imagem.img[j]);
-            }free(imagem.img);
-            imagem.img=NULL;
-            return imagem;
+                free(img.img[j]);
+            }free(img.img);
+            img.img=NULL;
+            return img;
         }
     }
-return imagem;
+     //aloca para um array
+    img._img = (uchar*)malloc(nLin*nCol*sizeof(uchar));
+    if(img._img ==NULL){
+        img._img= NULL;
+        free(img._img);
+        return img;
+    }
+return img;
 }
 //Q2
 imgRGB alocaImagemRGB(int nLin, int nCol) {
@@ -54,7 +64,7 @@ imgRGB alocaImagemRGB(int nLin, int nCol) {
         // Falha na alocação das linhas
         return img;  // img == NULL indica falha
     }
-    // Aloca memória para o array 1D de pixels (_img)
+    // Aloca para ponteiro de ponteiros
     for (int i = 0; i < nLin; i++) {
         img.img[i] = (tRGB *)malloc(nCol * sizeof(tRGB));
         if (img.img[i] == NULL) {
@@ -66,8 +76,14 @@ imgRGB alocaImagemRGB(int nLin, int nCol) {
             img.img = NULL;  // Indica falha
             return img;
         }
+    } 
+    //Aloca para um array
+    img._img = (tRGB**)malloc(nLin*nCol*sizeof(tRGB*));
+    if(img._img ==NULL){
+        img._img= NULL;
+        free(img._img);
+        return img;
     }
-
     return img;
 }
 
