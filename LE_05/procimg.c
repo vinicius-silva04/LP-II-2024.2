@@ -272,3 +272,53 @@ int* somaPorColunasGray(imgGray img) {
     // Retorna o ponteiro para o array contendo as somas das colunas
     return somaC;
 }
+
+
+    //Q14
+    // Função para somar os valores dos componentes RGB de cada linha em uma imagem RGB
+tRGB* somaPorLinhasRGB(imgRGB img) {
+    // Aloca memória para armazenar as somas de cada linha (cada linha tem um valor RGB)
+    tRGB *linhas = (tRGB*) malloc(img.nLin * sizeof(tRGB));
+
+    // Percorre cada linha da imagem
+    for (int i = 0; i < img.nLin; i++) {
+        // Inicializa os valores RGB da soma da linha com 0
+        linhas[i].R = 0;
+        linhas[i].G = 0;
+        linhas[i].B = 0;
+
+        // Percorre cada coluna da linha atual para somar os valores RGB dos pixels
+        for (int j = 0; j < img.nCol; j++) {
+            linhas[i].R += img.img[i][j].R;  // Soma o valor do componente Red (R)
+            linhas[i].G += img.img[i][j].G;  // Soma o valor do componente Green (G)
+            linhas[i].B += img.img[i][j].B;  // Soma o valor do componente Blue (B)
+        }
+    }
+
+    // Retorna o ponteiro para o array contendo as somas RGB de cada linha
+    return linhas;
+}
+
+// Função para somar os valores dos componentes RGB de cada coluna em uma imagem RGB
+tRGB* somaPorColunasRGB(imgRGB img) {
+    // Aloca memória para armazenar as somas de cada coluna (cada coluna tem um valor RGB)
+    tRGB *colunas = (tRGB*) malloc(img.nCol * sizeof(tRGB));
+
+    // Percorre cada coluna da imagem
+    for (int i = 0; i < img.nCol; i++) {
+        // Inicializa os valores RGB da soma da coluna com 0
+        colunas[i].R = 0;
+        colunas[i].G = 0;
+        colunas[i].B = 0;
+
+        // Percorre cada linha da coluna atual para somar os valores RGB dos pixels
+        for (int j = 0; j < img.nLin; j++) {
+            colunas[i].R += img.img[j][i].R;  // Soma o valor do componente Red (R)
+            colunas[i].G += img.img[j][i].G;  // Soma o valor do componente Green (G)
+            colunas[i].B += img.img[j][i].B;  // Soma o valor do componente Blue (B)
+        }
+    }
+
+    // Retorna o ponteiro para o array contendo as somas RGB de cada coluna
+    return colunas;
+}
