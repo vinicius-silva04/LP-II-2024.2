@@ -393,6 +393,41 @@ int main(){
     // Imprime uma linha separadora para o fim da questão
     printf("\n------------------------------------------------------------\n");
 
+    //Q15
+    printf("QUESTAO 15:\n\n");
+
+    // Declaração de variável para armazenar a soma total dos pixels
+    int somaT15;
+
+    // Aloca uma imagem em escala de cinza (Gray) com 100 linhas e 100 colunas
+    imgGray img15 = alocaImagemGray(100, 100);
+
+    // Preenche todos os pixels da imagem com o valor 1
+    for (int i = 0; i < img15.nLin; i++) {
+        for (int j = 0; j < img15.nCol; j++) {
+            img15.img[i][j] = 1;  // Atribui o valor 1 a cada pixel
+        }
+    }
+
+    // Calcula a soma total dos pixels da imagem usando a função somaTotalGray
+    somaT15 = somaTotalGray(img15);
+
+    // Verifica se a soma total está correta
+    // A soma total deve ser igual ao número de pixels (nLin * nCol), pois todos os pixels têm o valor 1
+    if (somaT15 != img15.nLin * img15.nCol) {
+        // Se a soma for diferente do esperado, imprime uma mensagem de erro
+        printf("ERRO na funcao 15!!!! %d", somaT15);
+    } else {
+        // Se a soma estiver correta, imprime uma mensagem de sucesso
+        printf("Deu certo a funcao 15!! %d", somaT15);
+    }
+
+    // Libera a memória alocada para a imagem
+    liberaImagemGray(img15);
+
+    // Imprime uma linha separadora para o fim da questão
+    printf("\n------------------------------------------------------------\n");
+
 
     return 0;
 }
