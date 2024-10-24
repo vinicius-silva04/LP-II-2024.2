@@ -1,5 +1,13 @@
 #include "procimg.c"
 
+//Função free
+void liberaImagemGray(imgGray img);
+/*
+   *Função que dá free em qualquer img que recebeu alocaImagemGray
+   *SÓ FUNCIONA COM O ".IMG" DENTRO DO STRUCT
+   *Parâmetros: 
+   *img: matriz bidimensional a ser desalocada
+*/
 
 //Q1
 imgGray alocaImagemGray(int nLin,int nCol);
