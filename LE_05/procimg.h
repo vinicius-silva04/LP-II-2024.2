@@ -105,7 +105,7 @@ int geraImgRGBB(imgRGB img);
 int geraImgGrayW(imgGray img);
 
 //Q8
-int geraImgRGBW(imgRGB img)
+int geraImgRGBW(imgRGB img);
 
 //Q9
 unsigned char geraPixelGrey(int tipo);

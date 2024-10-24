@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
+int main(){
     int i, j;
     int nLin = 5, nCol = 5;
     printf("Questao 1\n");
@@ -203,7 +203,6 @@ int main() {
     geraImgRGBB(imagemCrgb);
 
     teste = 0;
-
     for(i = 0; i < imagemCrgb.nCol*imagemCrgb.nLin; i++) if(imagemCrgb._img[i].R || imagemCrgb._img[i].G || imagemCrgb._img[i].B) teste = 1;
 
     if(teste)
@@ -274,7 +273,6 @@ int main() {
     free(imagemC.img);
     free(imagemCrgb._img);
     free(imagemCrgb.img);
-    free(vet);
 
-return 0;
+    return 0;
 }
