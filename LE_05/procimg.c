@@ -157,3 +157,65 @@ int geraImgGrayB(imgGray img) {
 
     return true;  // Retorna True (1) se tudo ocorreu bem
 }
+//Q6
+int geraImgRGBB(imgRGB img){
+    tRGB pixel;
+    pixel.R = 0;
+    pixel.G = 0;
+    pixel.B = 0;
+    return geraImgRGBFull(img, pixel);
+}
+//Q7
+int geraImgGrayW(imgGray img){
+    return geraImgGrayFull(img, 255);
+}
+//Q8
+int geraImgRGBW(imgRGB img){
+    tRGB pixel;
+    pixel.R = 255;
+    pixel.G = 255;
+    pixel.B = 255;
+    return geraImgRGBFull(img, pixel);
+}
+
+unsigned char geraPixelGrey(int tipo){
+
+    int prob, valor;
+
+    prob = rand() % 100;
+
+    if(tipo < 0){
+        if(prob < 80) valor = rand() % 128;
+        
+        else valor = rand() % 256;
+    }
+    else if(tipo > 0){
+        if(prob < 80) valor = rand() % 128 + 128;
+
+        else valor = rand() % 256;
+    }
+    else valor = rand() % 256;
+
+    return (unsigned char) valor;
+}
+//Q9
+int geraImgGray(imgGray img, int tipo){
+    if(img.img == NULL || img._img == NULL) return 0;
+
+    for(int i = 0; i < img.nCol * img.nLin; i++){
+        img._img[i] = geraPixelGrey(tipo);
+    }
+    return 1;
+}
+//Q10
+int geraImgRGB(imgRGB img, int tipo){
+    if(img.img == NULL || img._img == NULL) return 0;
+
+    for(int i = 0; i < img.nCol * img.nLin; i++){
+        img._img[i].R = geraPixelGrey(tipo);
+        img._img[i].G = geraPixelGrey(tipo);
+        img._img[i].B = geraPixelGrey(tipo);
+    }
+
+    return 1;
+}
