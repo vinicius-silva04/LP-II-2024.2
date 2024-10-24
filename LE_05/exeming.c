@@ -274,5 +274,65 @@ int main(){
     free(imagemCrgb._img);
     free(imagemCrgb.img);
 
+    
+    //funcao 13
+    printf("\nQUESTAO 13:\n\n");
+
+    // Aloca uma imagem em escala de cinza com 7 linhas e 4 colunas
+    imgGray img13 = alocaImagemGray(7, 4);
+
+    // Declaração de ponteiros para armazenar as somas das linhas e colunas
+    int *somaC13;
+    int *somaL13;
+
+    // Preenche a imagem com o valor 1 em todos os pixels
+    for (int i = 0; i < img13.nLin; i++) {
+        for (int j = 0; j < img13.nCol; j++) {
+            img13.img[i][j] = 1;  // Atribui o valor 1 ao pixel [i][j]
+        }
+    }
+
+    // Calcula a soma dos valores dos pixels por linha e coluna
+    somaL13 = somaPorLinhasGray(img13);  // Soma os valores de cada linha
+    somaC13 = somaPorColunasGray(img13); // Soma os valores de cada coluna
+
+    printf("\nlinhas: \n");
+    for (int i = 0; i < img13.nLin; i++) {
+        // Verifica se a soma da linha é igual ao número de colunas
+        if (somaL13[i] != img13.nCol) {
+            printf("Erro na funcao 13 de linhas!!!! %d\n", somaL13[i]);  // Imprime erro se a soma for incorreta
+            break;  // Interrompe o laço em caso de erro
+        }
+        else {
+            if(i == img13.nLin - 1){
+                printf("Funcao 13 de linhas deu certo: %d\n", somaL13[i]);  // Imprime a ultima soma correta da linha
+            }
+        }
+    }
+
+    printf("\ncolunas: \n");
+    for (int i = 0; i < img13.nCol; i++) {
+        // Verifica se a soma da coluna é igual ao número de linhas
+        if (somaC13[i] != img13.nLin) {
+            printf("Erro na funcao 13 de colunas!!!! %d\n", somaC13[i]);  // Imprime erro se a soma for incorreta
+            break;  // Interrompe o laço em caso de erro
+        }
+        else {
+            if(i == img13.nCol - 1){
+                printf("Funcao 13 de colunas deu certo: %d\n", somaC13[i]);  // Imprime a ultima soma correta da coluna
+            }
+        }
+    }
+
+    // Libera a memória alocada para as somas de linhas e colunas
+    free(somaC13);
+    free(somaL13);
+
+    // Libera a memória da imagem
+    liberaImagemGray(img13);
+
+    // Imprime uma linha separadora
+    printf("\n------------------------------------------------------------\n");
+
     return 0;
 }
