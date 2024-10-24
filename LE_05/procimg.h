@@ -69,3 +69,18 @@ int geraImgGrayB(imgGray img);
     *Retorno:
     *True(1) se funcionar corretamente,False(0)d se houver algum erro
 */
+//Q6
+int geraImgRGBB(imgRGB img);
+
+//Q7
+int geraImgGrayW(imgGray img);
+
+//Q8
+int geraImgRGBW(imgRGB img)
+
+//Q9
+unsigned char geraPixelGrey(int tipo);
+int geraImgGray(imgGray img, int tipo);
+
+//Q10
+int geraImgRGB(imgRGB img, int tipo);
