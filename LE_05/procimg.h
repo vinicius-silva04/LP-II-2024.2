@@ -102,3 +102,21 @@ int* somaPorColunasGray(imgGray img);
   *Retorno:
   *Array inteiro somaC (A soma de cada coluna)
 */
+
+//Q14
+tRGB* somaPorLinhasRGB(imgRGB img);
+/*
+  *Função que soma os elementos R, G e B das linhas da matriz RGB
+  *Parâmetro:
+  *img: Imagem já alocada previamente
+  *Retorno:
+  *Array do tipo tRGB linhas (A soma de cada linha)
+*/
+tRGB* somaPorColunasRGB(imgRGB img);
+/*
+  *Função que soma os elementos R, G e B das colunas da matriz RGB
+  *Parâmetro:
+  *img: Imagem já alocada previamente
+  *Retorno:
+  *Array do tipo tRGB colunas (A soma de cada coluna)
+*/
