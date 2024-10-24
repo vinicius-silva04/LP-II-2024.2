@@ -120,3 +120,13 @@ tRGB* somaPorColunasRGB(imgRGB img);
   *Retorno:
   *Array do tipo tRGB colunas (A soma de cada coluna)
 */
+
+//Q15
+int somaTotalGray(imgGray img);
+/*
+  *Função que soma todos os elementos da matriz gray
+  *Parâmetro:
+  *img: Imagem já alocada previamente
+  *Retorno
+  *somaT15 do tipo inteiro (que é a soma de todos os elementos)
+*/
