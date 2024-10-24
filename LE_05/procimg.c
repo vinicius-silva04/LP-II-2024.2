@@ -235,3 +235,40 @@ int geraImgRGB(imgRGB img, int tipo){
 
     return 1;
 }
+
+//Q13
+// Função para somar os valores dos pixels por linha em uma imagem em escala de cinza
+int* somaPorLinhasGray(imgGray img) {
+    // Aloca memória para armazenar as somas das linhas
+    int *somaL = (int*) malloc(img.nLin * sizeof(int));
+
+    // Percorre cada linha da imagem
+    for (int i = 0; i < img.nLin; i++) {
+        somaL[i] = 0;  // Inicializa a soma da linha i com 0
+        // Percorre cada coluna da linha i
+        for (int j = 0; j < img.nCol; j++) {
+            somaL[i] += img.img[i][j];  // Soma o valor do pixel [i][j] à soma da linha i
+        }
+    }
+
+    // Retorna o ponteiro para o array contendo as somas das linhas
+    return somaL;
+}
+
+// Função para somar os valores dos pixels por coluna em uma imagem em escala de cinza
+int* somaPorColunasGray(imgGray img) {
+    // Aloca memória para armazenar as somas das colunas
+    int *somaC = (int*) malloc(img.nCol * sizeof(int));
+
+    // Percorre cada coluna da imagem
+    for (int i = 0; i < img.nCol; i++) {
+        somaC[i] = 0;  // Inicializa a soma da coluna i com 0
+        // Percorre cada linha da coluna i
+        for (int j = 0; j < img.nLin; j++) {
+            somaC[i] += img.img[j][i];  // Soma o valor do pixel [j][i] à soma da coluna i
+        }
+    }
+
+    // Retorna o ponteiro para o array contendo as somas das colunas
+    return somaC;
+}
