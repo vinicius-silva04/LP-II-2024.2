@@ -85,6 +85,16 @@ int geraImgGray(imgGray img, int tipo);
 //Q10
 int geraImgRGB(imgRGB img, int tipo);
 
+//Q11
+
+int pixelGrayMax(imgGray img);
+int pixelGrayMin(imgGray img);
+
+//Q12
+
+tRGB pixelRGBMax(imgRGB img);
+tRGB pixelRGBMin(imgRGB img);
+
 //Q13
 int* somaPorLinhasGray(imgGray img);
 /*
