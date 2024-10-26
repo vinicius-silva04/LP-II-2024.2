@@ -210,7 +210,7 @@ int main(){
     else
         printf("\nExecucao da funcao 6 teve exito");
 
-
+    printf("\n------------------------------------------------------------\n");
     //funcao 7
     geraImgGrayW(imagemC);
 
@@ -220,7 +220,7 @@ int main(){
         printf("\nExecucao da funcao 7 falhou");
     else
         printf("\nExecucao da funcao 7 teve exito");
-
+    printf("\n------------------------------------------------------------\n");
     //funcao 8
 
     geraImgRGBW(imagemCrgb);
@@ -231,7 +231,7 @@ int main(){
         printf("\nExecucao da funcao 8 falhou");
     else
         printf("\nExecucao da funcao 8 teve exito");
-    
+    printf("\n------------------------------------------------------------\n");
     //funcao 9
     geraImgGray(imagemC, 1);
     int maior = 0, menor = 0;
@@ -247,7 +247,7 @@ int main(){
         printf("\nExecucao da funcao 9 falhou");
     else
         printf("\nExecucao da funcao 9 teve exito");
-
+    printf("\n------------------------------------------------------------\n");
     //funcao 10
     geraImgRGB(imagemCrgb, 1);
     maior = 0;
@@ -274,7 +274,82 @@ int main(){
     free(imagemCrgb._img);
     free(imagemCrgb.img);
 
+    printf("\n------------------------------------------------------------\n");
+    printf("\nQUESTAO 11\n");
     
+
+    imgGray imagem;
+    imagem.nCol = 4;
+    imagem.nLin = 3;
+    imagem._img = (uchar*)malloc(imagem.nCol * imagem.nLin * sizeof(uchar));
+
+    for(int i = 0; i < imagem.nLin*imagem.nCol; i++)
+    {
+        imagem._img[i] = 7;
+    }
+
+    imagem._img[3] = 4;
+    imagem._img[7] = 15;
+
+    for(int i = 0; i < imagem.nLin * imagem.nCol; i++)
+    {
+        if(i % imagem.nCol == 0)
+        {
+            printf("\n");
+        }
+
+        printf("%3d", imagem._img[i]);
+    }
+
+    printf("\n\n--> MAX: %d", pixelGrayMax(imagem));
+    printf("\n\n--> MIN: %d\n", pixelGrayMin(imagem));
+
+    free(imagem._img);
+
+    printf("\n------------------------------------------------------------\n");
+    printf("\nQUESTAO 12\n");
+  
+
+    imgRGB imagem;
+    imagem.nCol = 4;
+    imagem.nLin = 3;
+    imagem._img = (tRGB*)malloc(imagem.nCol * imagem.nLin * sizeof(tRGB));
+
+    for(int i = 0; i < imagem.nLin*imagem.nCol; i++)
+    {
+        imagem._img[i] = (tRGB)
+        {
+            7, 7, 7
+        };
+    }
+
+    imagem._img[3] = (tRGB)
+    {
+        15, 14, 13
+    };
+    imagem._img[7] = (tRGB)
+    {
+        4,3,2
+    };
+
+    for(int i = 0; i < imagem.nLin*imagem.nCol; i++)
+    {
+        if(i % imagem.nCol == 0)
+        {
+            printf("\n");
+        }
+        printf("  {R:%d, G:%d, B:%d}  ", imagem._img[i].R, imagem._img[i].G, imagem._img[i].B);
+    }
+
+    printf("\n\n--> MAX RED: %d", pixelRGBMax(imagem).R);
+    printf("\n\n--> MIN RED: %d", pixelRGBMin(imagem).R);
+    printf("\n\n--> MAX GREEN: %d", pixelRGBMax(imagem).G);
+    printf("\n\n--> MIN GREEN: %d", pixelRGBMin(imagem).G);
+    printf("\n\n--> MAX BLUE: %d", pixelRGBMax(imagem).B);
+    printf("\n\n--> MIN BLUE: %d\n", pixelRGBMin(imagem).B);
+
+    free(imagem._img);
+    printf("\n------------------------------------------------------------\n");
     //funcao 13
     printf("\nQUESTAO 13:\n\n");
 
