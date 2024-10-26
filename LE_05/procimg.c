@@ -236,6 +236,87 @@ int geraImgRGB(imgRGB img, int tipo){
     return 1;
 }
 
+//Q11
+int pixelGrayMax(imgGray img)
+{
+    int max = 0;
+
+    for(int i = 0; i < img.nLin * img.nCol; i++)
+    {
+        if(max < img._img[i])
+        {
+            max = img._img[i];
+        }
+    }
+
+    return max;
+}
+
+
+int pixelGrayMin(imgGray img)
+{
+    int min = 255;
+
+    for(int i = 0; i < img.nLin * img.nCol; i++)
+    {
+        if(min > img._img[i])
+        {
+            min = img._img[i];
+        }
+    }
+
+    return min;
+}
+
+//Q12
+tRGB pixelRGBMax(imgRGB img)
+{
+    tRGB max = {0, 0,0};
+
+    for(int i = 0; i < img.nLin * img.nCol; i++)
+    {
+        if(max.R < img._img[i].R)
+        {
+            max.R = img._img[i].R;
+        }
+        if(max.G < img._img[i].G)
+        {
+            max.G = img._img[i].G;
+        }
+        if(max.B < img._img[i].B)
+        {
+            max.B = img._img[i].B;
+        }
+    }
+
+    return max;
+}
+
+
+
+tRGB pixelRGBMin(imgRGB img)
+{
+    tRGB min = {255, 255, 255};
+
+    for(int i = 0; i < img.nLin * img.nCol; i++)
+    {
+        if(min.R > img._img[i].R)
+        {
+            min.R = img._img[i].R;
+        }
+        if(min.G > img._img[i].G)
+        {
+            min.G = img._img[i].G;
+        }
+        if(min.B > img._img[i].B)
+        {
+            min.B = img._img[i].B;
+        }
+    }
+
+    return min;
+}
+
 //Q13
 // Função para somar os valores dos pixels por linha em uma imagem em escala de cinza
 int* somaPorLinhasGray(imgGray img) {
