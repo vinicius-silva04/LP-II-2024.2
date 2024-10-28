@@ -278,77 +278,77 @@ int main(){
     printf("\nQUESTAO 11\n");
     
 
-    imgGray imagem;
-    imagem.nCol = 4;
-    imagem.nLin = 3;
-    imagem._img = (uchar*)malloc(imagem.nCol * imagem.nLin * sizeof(uchar));
+    imgGray imagem11;
+    imagem11.nCol = 4;
+    imagem11.nLin = 3;
+    imagem11._img = (uchar*)malloc(imagem11.nCol * imagem11.nLin * sizeof(uchar));
 
-    for(int i = 0; i < imagem.nLin*imagem.nCol; i++)
+    for(int i = 0; i < imagem11.nLin*imagem11.nCol; i++)
     {
-        imagem._img[i] = 7;
+        imagem11._img[i] = 7;
     }
 
-    imagem._img[3] = 4;
-    imagem._img[7] = 15;
+    imagem11._img[3] = 4;
+    imagem11._img[7] = 15;
 
-    for(int i = 0; i < imagem.nLin * imagem.nCol; i++)
+    for(int i = 0; i < imagem11.nLin * imagem.nCol; i++)
     {
-        if(i % imagem.nCol == 0)
+        if(i % imagem11.nCol == 0)
         {
             printf("\n");
         }
 
-        printf("%3d", imagem._img[i]);
+        printf("%3d", imagem11._img[i]);
     }
 
-    printf("\n\n--> MAX: %d", pixelGrayMax(imagem));
-    printf("\n\n--> MIN: %d\n", pixelGrayMin(imagem));
+    printf("\n\n--> MAX: %d", pixelGrayMax(imagem11));
+    printf("\n\n--> MIN: %d\n", pixelGrayMin(imagem11));
 
-    free(imagem._img);
+    free(imagem11._img);
 
     printf("\n------------------------------------------------------------\n");
     printf("\nQUESTAO 12\n");
   
 
-    imgRGB imagem;
-    imagem.nCol = 4;
-    imagem.nLin = 3;
-    imagem._img = (tRGB*)malloc(imagem.nCol * imagem.nLin * sizeof(tRGB));
+    imgRGB imagem12;
+    imagem12.nCol = 4;
+    imagem12.nLin = 3;
+    imagem12._img = (tRGB*)malloc(imagem12.nCol * imagem12.nLin * sizeof(tRGB));
 
-    for(int i = 0; i < imagem.nLin*imagem.nCol; i++)
+    for(int i = 0; i < imagem12.nLin*imagem12.nCol; i++)
     {
-        imagem._img[i] = (tRGB)
+        imagem12._img[i] = (tRGB)
         {
             7, 7, 7
         };
     }
 
-    imagem._img[3] = (tRGB)
+    imagem12._img[3] = (tRGB)
     {
         15, 14, 13
     };
-    imagem._img[7] = (tRGB)
+    imagem12._img[7] = (tRGB)
     {
         4,3,2
     };
 
-    for(int i = 0; i < imagem.nLin*imagem.nCol; i++)
+    for(int i = 0; i < imagem12.nLin*imagem12.nCol; i++)
     {
-        if(i % imagem.nCol == 0)
+        if(i % imagem12.nCol == 0)
         {
             printf("\n");
         }
-        printf("  {R:%d, G:%d, B:%d}  ", imagem._img[i].R, imagem._img[i].G, imagem._img[i].B);
+        printf("  {R:%d, G:%d, B:%d}  ", imagem12._img[i].R, imagem12._img[i].G, imagem12._img[i].B);
     }
 
-    printf("\n\n--> MAX RED: %d", pixelRGBMax(imagem).R);
-    printf("\n\n--> MIN RED: %d", pixelRGBMin(imagem).R);
-    printf("\n\n--> MAX GREEN: %d", pixelRGBMax(imagem).G);
-    printf("\n\n--> MIN GREEN: %d", pixelRGBMin(imagem).G);
-    printf("\n\n--> MAX BLUE: %d", pixelRGBMax(imagem).B);
-    printf("\n\n--> MIN BLUE: %d\n", pixelRGBMin(imagem).B);
+    printf("\n\n--> MAX RED: %d", pixelRGBMax(imagem12).R);
+    printf("\n\n--> MIN RED: %d", pixelRGBMin(imagem12).R);
+    printf("\n\n--> MAX GREEN: %d", pixelRGBMax(imagem12).G);
+    printf("\n\n--> MIN GREEN: %d", pixelRGBMin(imagem12).G);
+    printf("\n\n--> MAX BLUE: %d", pixelRGBMax(imagem12).B);
+    printf("\n\n--> MIN BLUE: %d\n", pixelRGBMin(imagem12).B);
 
-    free(imagem._img);
+    free(imagem12._img);
     printf("\n------------------------------------------------------------\n");
     //funcao 13
     printf("\nQUESTAO 13:\n\n");
