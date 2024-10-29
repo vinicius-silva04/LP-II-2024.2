@@ -504,6 +504,96 @@ int main(){
     // Imprime uma linha separadora para o fim da questão
     printf("\n------------------------------------------------------------\n");
 
+    //Q16
+    printf ("QUESTAO 16:\n");
+    imgRGB imagem16 = alocaImagemRGB (6, 6);
+    if (imagem16.img==NULL || imagem16._img==NULL) {   //comunicar o usuário a falha na alocação da memória
+        printf("Falha na alocacao de memoria da Q16!\n");
+    }
 
+    // Preenche a imagem RGB com valores arbitrários
+    for (i = 0; i < 6; i++) {
+        for (j = 0; j < 6; j++) {
+            imagem16.img[i][j].R = 3;  // Define o valor do vermelho (R)
+            imagem16.img[i][j].G = 5;  // Define o valor do verde (G)
+            imagem16.img[i][j].B = 7;  // Define o valor do azul (B)
+        }
+    }
+
+    tRGB totalRGB = somaTotalRGB (imagem16);    //chamada da função
+    printf("\nSoma total dos canais RGB\n");      //printa a soma dos canais
+    printf ("Soma R: %u\n", totalRGB.R);
+    printf ("Soma G: %u\n", totalRGB.G);
+    printf ("Soma B: %u\n", totalRGB.B);
+    
+    if (totalRGB.R!=3*6*6 || totalRGB.G!=5*6*6 || totalRGB.B!=7*6*6) printf ("Soma incorreta!\n");
+    else printf ("\nSoma correta!\n");
+    
+    free (imagem16._img);     //desaloca espaço contínuo
+    free (imagem16.img);     //desaloca espaço das linhas
+
+    // Imprime uma linha separadora para o fim da questão
+    printf("\n------------------------------------------------------------\n");
+
+    //Q17
+    printf ("QUESTAO 17:\n");
+    imgGray imagem17 = alocaImagemGray (15, 15);
+
+    //verifica se a alocação foi bem-sucedida e comunica o usuário
+    if (imagem17.img==NULL || imagem17._img==NULL) {
+        printf("Falha na alocacao de memoria da Q17!\n");
+    }
+    
+    //Preenche imagem 
+    for (i = 0; i < 15; i++) {
+        for (j = 0; j < 15; j++) {
+            imagem17.img[i][j] = 12;
+        }
+    }
+    
+    int pixelsG = quantosPixelsGrayNaInt(imagem17, 12);
+    printf("\n%d pixels tem intensidade igual a 12.\n", pixelsG);
+
+    // Verifica se o resultado está correto
+    if (pixelsG == 15*15) {
+        printf("\nVerificacao bem-sucedida: o numero de pixels esta correto.\n");
+    } else {
+        printf("\nErro: numero de pixels incorreto. Esperado: %d, Obtido: %d\n", 15*15, pixelsG);
+    }
+    free (imagem17._img);     //desaloca espaço contínuo
+    free (imagem17.img);     //desaloca espaço das linhas
+
+    // Imprime uma linha separadora para o fim da questão
+    printf("\n------------------------------------------------------------\n");
+
+    //Q18
+    printf ("QUESTAO 18:\n");
+    imgRGB imagem18 = alocaImagemRGB (15, 15);
+    
+    //verifica se a alocação foi bem-sucedida e comunica o usuário
+    if (imagem18.img==NULL || imagem18._img==NULL) { 
+        printf("Falha na alocacao de memoria da Q18!\n");
+    }
+
+    // Preenche a imagem RGB com valores arbitrários
+    for (i = 0; i < 15; i++) {
+        for (j = 0; j < 15; j++) {
+            imagem18.img[i][j].R = 3;  // Define o valor do vermelho (R)
+            imagem18.img[i][j].G = 5;  // Define o valor do verde (G)
+            imagem18.img[i][j].B = 7;  // Define o valor do azul (B)
+        }
+    }
+    tRGB intensidade18 = {3, 5, 7};    // define a intensidade que queremos contar
+    int pixelsRGB = quantosPixelsRGBNaInt(imagem18, intensidade18);
+    printf("\n%d pixels tem intensidade igual a R=3, G=5 e G=7.\n", pixelsRGB);
+
+    // Verifica se o resultado está correto
+    if (pixelsRGB == 15*15) {
+        printf("\nVerificacao bem-sucedida: o numero de pixels esta correto.\n");
+    } else {
+        printf("\nErro: numero de pixels incorreto. Esperado: %d, Obtido: %d\n", 15*15, pixelsRGB);
+    }
+    free (imagem18._img);     //desaloca espaço contínuo
+    free (imagem18.img);     //desaloca espaço das linhas
     return 0;
 }
