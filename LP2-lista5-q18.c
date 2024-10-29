@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /*Implemente a função int quantosPixelsGrayNaInt(imgGray img, uchar inten) que retorna a 
 quantidade de pixels, na imagem img, possuem uma intensidade específica inten. */
