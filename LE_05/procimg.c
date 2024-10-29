@@ -112,7 +112,7 @@ int geraImgRGBFull(imgRGB img, tRGB pixel)
     // Itera sobre cada pixel e preenche com o valor do pixel fornecido
     for (int i = 0; i < img.nLin; i++)
     {
-        if (img.img[i] == NULL)
+        if (img.img[i] == NULL || img.nLin<= 0 || img.nCol<=0)
         {
             return 0; // Retorna False se alguma linha não foi alocada corretamente
         }
@@ -128,7 +128,7 @@ int geraImgRGBFull(imgRGB img, tRGB pixel)
 int geraImgGrayB(imgGray img)
 {
     // Verifica se a imagem foi alocada corretamente
-    if (img.img == NULL)
+    if (img.img == NULL || img.nLin<=0 || img.nCol<=0)
     {
         return false; // Retorna False (0) se img é NULL
     }
@@ -136,10 +136,6 @@ int geraImgGrayB(imgGray img)
     // Percorre todos os pixels da imagem e os preenche com o valor dado
     for (int i = 0; i < img.nLin; i++)
     {
-        if (img.img[i] == NULL)
-        {
-            return false; // Se alguma linha for NULL, indica falha
-        }
         for (int j = 0; j < img.nCol; j++)
         {
             img.img[i][j] = 0; // Preenche o pixel com o valor
