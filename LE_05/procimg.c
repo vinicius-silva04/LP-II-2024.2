@@ -84,7 +84,7 @@ imgRGB alocaImagemRGB(int nLin, int nCol) {
 int geraImgGrayFull(imgGray img, uchar pixel)
 {
     // Verifica se a imagem foi alocada corretamente
-    if (img.img == NULL)
+    if (img.img == NULL || img.nLin<= 0 || img.nCol<=0)
     {
         return false; // Retorna False (0) se img é NULL
     }
@@ -92,10 +92,6 @@ int geraImgGrayFull(imgGray img, uchar pixel)
     // Percorre todos os pixels da imagem e os preenche com o valor dado
     for (int i = 0; i < img.nLin; i++)
     {
-        if (img.img[i] == NULL)
-        {
-            return false; // Se alguma linha for NULL, indica falha
-        }
         for (int j = 0; j < img.nCol; j++)
         {
             img.img[i][j] = pixel; // Preenche o pixel com o valor
