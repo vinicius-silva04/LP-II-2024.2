@@ -93,7 +93,7 @@ int pixelGrayMin(imgGray img);
 //Q12
 
 tRGB pixelRGBMax(imgRGB img);
-tRGB pixelRGBMin(imgRGB img);
+tRGB pixelRGBMin(imgRGB img);
 
 //Q13
 int* somaPorLinhasGray(imgGray img);
@@ -139,4 +139,37 @@ int somaTotalGray(imgGray img);
   *img: Imagem já alocada previamente
   *Retorno
   *somaT15 do tipo inteiro (que é a soma de todos os elementos)
+*/
+
+//Q16
+tRGB somaTotalRGB (imgRGB img);
+/*
+  *Função que soma todos os elementos da imagem RGB em cada canal (R, G, B)
+  * Parâmetro:
+  * img: imagem RGB já alocada previamente
+  * Retorno:
+  * somaT16 do tipo tRGB que armazena a soma total de cada canal
+*/
+
+//Q17
+int quantosPixelsGrayNaInt(imgGray img, uchar inten);
+/*
+  *Conta quantos pixels de determinada intensidade têm na imagem gray
+  *Parâmetros:
+  *img: imagem gray já alocada previamente (utilizada de forma unidimensional)
+  *inten: uma intensidade pré-estabelecida
+  *Retorno:
+  *pixelsG: total de pixels iguais a inten na imagem
+*/
+
+//Q18
+int quantosPixelsRGBNaInt(imgRGB img, tRGB inten);
+/*
+  *Conta quantos pixels de determinada intensidade têm na imagem RGB
+  *Parâmetros:
+  *img: imagem RGB já alocada previamente (utilizada de forma unidimensional)
+  *inten: uma intensidade pré-estabelecida em cada canal
+  *Retorno:
+  *pixelsRGB: total de pixels iguais a a inten na imagem (as intensidades dos 3 canais têm 
+   que ser iguais as pré-estabelecidas para contabilizar o pixel)
 */
