@@ -107,7 +107,7 @@ imgRGB alocaImagemRGB(int nLin, int nCol) {
         }
     } 
     //Aloca para um array
-    img._img = (tRGB**)malloc(nLin*nCol*sizeof(tRGB*));
+    img._img = (tRGB*)malloc(nLin*nCol*sizeof(tRGB));
     if(img._img ==NULL){
         img._img= NULL;
         free(img._img);
@@ -314,7 +314,7 @@ tRGB pixelRGBMin(imgRGB img)
         }
     }
 
-    return min;
+return min;
 }
 
 //Q13
@@ -423,3 +423,48 @@ int somaTotalGray(imgGray img) {
     return somaT15;
 }
 
+//Q16
+tRGB somaTotalRGB (imgRGB img) {
+    tRGB somaT16 = {0, 0, 0};        //inicializar as variáveis R, G, B do struct com 0
+    
+    /*Soma os valores da imagem bidimensional RGB imagem2 (chamada de img no parâmetro) 
+    snos canais R, G e B percorrendo nLin e nCol*/
+    for (int i = 0; i<img.nLin; i++) { 
+        for (int j = 0; j<img.nCol; j++) {
+            somaT16.R += img.img [i][j].R;    
+            somaT16.G += img.img [i][j].G;
+            somaT16.B += img.img [i][j].B;
+        }
+    }
+    return somaT16;  //retorna a soma acumulada dos canais
+}
+
+//Q17
+// Função que conta quantos pixels têm a intensidade igual à especificada
+int quantosPixelsGrayNaInt(imgGray img, uchar inten) {
+    int pixelsG = 0;
+    
+    // Percorre a imagem bidimensionalmente
+    for (int i = 0; i<img.nLin; i++) {
+        for (int j = 0; j<img.nCol; j++) {
+            if (img.img[i][j]==inten) pixelsG++;
+        }
+    }
+        
+    return pixelsG;
+}
+
+//Q18
+// Função que conta quantos pixels têm a intensidade RGB igual à especificada
+int quantosPixelsRGBNaInt(imgRGB img, tRGB inten) {
+    int pixelsRGB = 0;
+    
+    // Percorre a imagem unidimensionalmente
+    for (int i = 0; i<img.nLin; i++) {
+        for (int j = 0; j < img.nCol; j++) {
+            if (img.img[i][j].R==inten.R && img.img[i][j].G==inten.G && img.img[i][j].B==inten.B)
+                pixelsRGB++;
+        } 
+    }
+    return pixelsRGB;
+}
